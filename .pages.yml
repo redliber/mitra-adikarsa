@@ -1,6 +1,4 @@
-media : media
-  label : Media
-  input : src/contents/media
+media : "src/contents/media"
 content:
   - name : posts
     label : Posts
