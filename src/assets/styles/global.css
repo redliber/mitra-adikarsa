@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sans: 'Space Grotesk Variable', 'sans-serif';
+  }
+
+html {
+  @apply text-zinc-50;
+  @apply tracking-tight;
+}

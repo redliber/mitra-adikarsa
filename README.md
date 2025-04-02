@@ -1,48 +1,21 @@
-# Astro Starter Kit: Basics
+# Mitra Adikarsa
 
-```sh
-npm create astro@latest -- --template basics
-```
+PT. Mitra Adikarsa berkomitmen untuk menghadirkan solusi infrastruktur kelistrikan yang andal dan inovatif guna mendukung kemajuan Indonesia. Dengan mengutamakan keselamatan, efisiensi, dan standar kualitas tertinggi, kami memastikan pembangunan infrastruktur kelistrikan yang berkelanjutan dan berdaya saing.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Didirikan Pada 13 November 2006, PT. Mitra Adikarsa Adalah Perusahaan Terdepan Dalam Penyediaan Layanan Infrastruktur Kelistrikan Yang Mengutamakan Keandalan, Efisiensi, Dan Keselamatan.
+Kami Memiliki Spesialisasi Dalam Pemeliharaan Dan Pembangunan Jaringan Tegangan Menengah Serta Rendah, Pembangunan Gardu Distribusi, Power Plant Hingga 5000 Kva/Unit, Serta Penanganan Gangguan Jaringan PLN
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Proyek Strategis
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+Pt. Mitra Adikarsa Dipercaya Oleh PLN Unit Induk Distribusi (UID) Jakarta, Banten, Jawa Barat Untuk Menangani Proyek Di Berbagai Area Strategis. Pada Tahun 2008, Kami Menjadi Perusahaan Pertama Di DKI Jakarta Yang Mendapatkan Kepercayaan Dalam Mengelola Pelayanan Teknik PLN.
 
-## 🚀 Project Structure
+## Ekspansi Dan Keunggulan
 
-Inside of your Astro project, you'll see the following folders and files:
+Kami Terus Memperluas Jangkauan Dengan Memenangkan Berbagai Tender Strategis, Kami Secara Konsisten Mendapatkan berbagai macam pekerjaan setiap Tahunnya. Mencerminkan Rekam Jejak Unggul Dan Kredibilitas Tinggi Dalam Industri Kelistrikan.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Komitmen Kualitas
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+Kesuksesan Pt. Mitra Adikarsa Ditopang Oleh Tim Ahli Yang Berpengalaman,Tersertifikasi, Dan Berorientasi Pada Solusi Inovatif. 
+Dengan Menerapkan Standar ISO Dan Praktik Terbaik Industri, Kami Berkomitmen Untuk Memberikan Layanan Dengan Presisi Tinggi, Efisiensi Optimal, Dan Ketepatan Waktu.
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Sebagai Mitra Strategis Dalam Pengembangan Infrastruktur Kelistrikan, Pt. Mitra Adikarsa Siap Membantu Anda Mewujudkan Proyek Dengan Keunggulan Operasional Dan Standar Profesionalisme Tertinggi.
