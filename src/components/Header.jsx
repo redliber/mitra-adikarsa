@@ -1,5 +1,6 @@
 import Image from "astro/components/Image.astro"
 import ButtonAnimated from "./Button-Animated"
+import companylogo from "../assets/media/company-logo.svg"
 
 export default function Header() {
     const tabs = [
@@ -24,7 +25,7 @@ export default function Header() {
     return (
         <div className="w-full min-h-[25px] flex flex-row justify-between py-2 px-6">
             <div className="flex flex-row items-center gap-2">
-                <img src={"./src/assets/media/company-logo.svg"} alt="company-logo" className="w-[50px]" />
+                <img src={companylogo.src} alt="company-logo" className="w-[50px]" />
                 <a href="/mitra-adikarsa">MITRA ADIKARSA</a>
             </div>
             <div className="flex flex-row items-center">
