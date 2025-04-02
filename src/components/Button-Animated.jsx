@@ -6,8 +6,8 @@ export default function ButtonAnimated({label}) {
     const [scope, animate] = useAnimate()
     const [useHovered, setHovered] = useState(false)
 
-    const hoveredAnim = { scale: 1.1, rotate: 20 }
-    const hoveredTransition = { duration: 0.3, type: "spring" }
+    const hoveredAnim = { scale: 1.2, rotation: 25 }
+    const hoveredTransition = { duration: 0.5, type: "spring" }
 
     function hoverOver () {
         animate(scope.current, hoveredAnim, hoveredTransition)
