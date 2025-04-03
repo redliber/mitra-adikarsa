@@ -12,6 +12,7 @@ html {
 
 .dark-green-color {
   background-color: rgba(4, 17, 16,1)
+  /* background-color: linear-gradient(90deg, rgba(14,75,58,1) 0%, rgba(5,40,37,1) 100%); */
 }
 
 .grainy-bg {

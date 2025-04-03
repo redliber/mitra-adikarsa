@@ -1,16 +1,49 @@
 ---
+import { Image } from 'astro:assets';
 import ButtonAnimated from '../components/Button-Animated';
 import Hero from '../components/Hero';
 import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
+import electricLines from "../assets/media/stock/electric-lines.jpg"
+import ImageWithAspect from "../components/ImageWithAspect.astro"
+import ThreeScene from "../components/ThreeScene"
+import { constColors } from '../lib/const';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<div class="w-full min-h-screen">
-		<Hero client:load title={'ONE STOP ELECTRICAL SOLUTION'}/>
+	<div 
+		class="w-full flex flex-col"
+	>
+		<div class="-mb-70" id="main-hero"
+		>
+			<div class="m-16 flex flex-col">
+				<div class="">
+					<Hero client:load title={'ONE-STOP ELECTRICAL SOLUTION'}/>
+				</div>
+			</div>
+		</div>
+		<div class=" h-[70vh] w-[100vw]">
+			<ThreeScene client:load />
+		</div>
+		<div class="my-56 px-16 flex flex-col">
+
+			<p class="text-8xl leading-[5.5rem] font-thin z-[99]">
+				Solusi infrastruktur kelistrikan yang <span class="font-black " style={{color: constColors.yellowGreen}}>handal</span> dan <span class="font-black " style={{color: constColors.yellowGreen}}>inovativ</span> guna mendukung kemajuan Indonesia. Dengan mengutamakan <span class="font-black " style={{color: constColors.yellowGreen}}>keselamatan</span>, <span class="font-black " style={{color: constColors.yellowGreen}}>efisiensi</span>, dan standar <span class="font-black " style={{color: constColors.yellowGreen}}>kualitas tertinggi</span>, kami memastikan pembangunan infrastruktur kelistrikan yang berkelanjutan dan berdaya saing.
+			</p>
+		</div>
+		<div class="min-h-[100vh]"
+			style={{
+				backgroundImage: 'url("./src/assets/media/stock/electric-lines.jpg")',
+				backgroundSize: 'cover',
+				backgroundRepeat: 'no-repeat',
+				backgroundPositionY: 'bottom',
+				backgroundBlendMode: 'difference',
+				}}
+		>
+			
+		</div>
 	</div>
 </Layout>

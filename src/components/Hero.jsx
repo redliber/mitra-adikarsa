@@ -18,7 +18,7 @@ export default function Hero ({title}) {
             animate(scope.current, {
               opacity: 1,
               y: 0,
-            }, { duration: 0.5 });
+            }, { duration: 1.5, type: "spring" });
           } else {
             animate(scope.current, {
               opacity: 0,
@@ -27,8 +27,6 @@ export default function Hero ({title}) {
           }
     })
 
-    console.log("entry --> ", entry);
-
     return (
         <div
             ref={ref}
@@ -36,8 +34,8 @@ export default function Hero ({title}) {
         >
             <p
                 ref={scope}
-                className="text-[12rem] font-black leading-[10rem] max-w-5xl"
-                style={{ opacity: 0, transform: 'translateY(20px)' }}
+                className="text-[12vw] leading-[11vw] max-w-5xl"
+                style={{ opacity: 0, transform: 'translateY(75px)' }}
             >
                 {title} 
             </p>
