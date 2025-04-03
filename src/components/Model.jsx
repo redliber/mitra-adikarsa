@@ -1,7 +1,7 @@
 'use client'
 import React, { useRef } from 'react'
 import { MeshReflectorMaterial, MeshTransmissionMaterial, useGLTF } from '@react-three/drei'
-import { MeshStandardMaterial, FrontSide, AdditiveBlending } from 'three'
+import { MeshStandardMaterial, FrontSide, AdditiveBlending, MathUtils } from 'three'
 import { constColors } from '../lib/const'
 import { useFrame } from '@react-three/fiber'
 import { useWindowScroll } from '@uidotdev/usehooks'
@@ -43,7 +43,7 @@ export function Model(props) {
     const [{ x, y }, scrollTo] = useWindowScroll();
 
     useFrame((state) => {
-        groupRef.current.rotation.y = y /800
+        groupRef.current.rotation.y = MathUtils.lerp(groupRef.current.rotation.y, y/800, 0.075)
     })
 
     useFrame((state) => {
