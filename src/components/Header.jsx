@@ -1,11 +1,17 @@
+
 import Image from "astro/components/Image.astro"
 import ButtonAnimated from "./Button-Animated"
 import companylogo from "../assets/media/company-logo.svg"
-import { useWindowSize } from "@uidotdev/usehooks"
+import { useWindowScroll, useWindowSize } from "@uidotdev/usehooks"
 import '../assets/styles/global.css'
+import { constColors } from "../lib/const"
+import { useAnimate } from "framer-motion"
+import { useEffect } from "react"
 
 export default function Header({currentPath}) {
     const {width, height} = useWindowSize()
+    const [{ x, y }, scrollTo] = useWindowScroll()
+    const [scope, animate] = useAnimate()
 
     const tabs = [
         {
@@ -20,10 +26,10 @@ export default function Header({currentPath}) {
             label: 'OUR SERVICES',
             route: '/mitra-adikarsa/services'
         },
-        {
-            label: 'CONTACT US',
-            route: '/mitra-adikarsa/contact'
-        },
+        // {
+        //     label: 'CONTACT US',
+        //     route: '/mitra-adikarsa/contact'
+        // },
     ]
 
     // Find out if the last letter is a slash. If so, removing it.
@@ -34,8 +40,35 @@ export default function Header({currentPath}) {
         currentPath = pathToArr.join("")
     }
 
+    const animateState = {
+        backgroundColor: 'rgba(10, 77, 71, 0.75)'
+    }
+    const animateTransition = {
+        duration: 0.5, type : 'spring'
+    }
+
+    const regularState = {
+        backgroundColor: 'rgba(5,40,37,0.75)'
+    }
+    const regularTransition = {
+        duration: 2, type: 'spring'
+    }
+
+    useEffect(() => {
+        if (y > 50) {
+            animate(scope.current, animateState, animateTransition)
+        } else {
+            animate(scope.current, regularState, regularTransition)
+        }
+    })
+
     return (
-        <div className="w-full min-h-[25px] flex flex-row justify-between py-6 px-6 text-sm border-b-[0.1px] border-zinc-50/35 sticky top-0 grainy-bg">
+        <div 
+            ref={scope}
+            className="w-full min-h-[25px] flex flex-row justify-between py-6 px-14 text-sm border-b-[0.1px] border-zinc-50/35 sticky top-0 grainy-bg glassmorphism z-99"
+            style={regularState}
+
+        >
             <div className="flex flex-row items-center gap-2">
                 <img src={companylogo.src} alt="company-logo" className="w-[50px]" />
                 <a href="/mitra-adikarsa" className="max-w-1.5 leading-[0.8rem]">
@@ -44,24 +77,52 @@ export default function Header({currentPath}) {
             </div>
             {
                 width > 756 && (
-                    <div className="flex flex-row items-center">
+                    <>
+                    <div className="flex flex-row items-center gap-4 font-extrabold">
                         {
                             tabs.map((item, index) => {
                                 if (currentPath == item.route) {
                                     return (
-                                        <a href={item.route} className="border-[0.1px] rounded-sm px-4 py-1 font-extrabold border-zinc-50/50 text-amber-200 hover:text-amber-300">
-                                            <ButtonAnimated client:load label={item.label}/>
-                                        </a>
-                                    )
-                                }
-                                return (
-                                    <a href={item.route} className="font-light px-4">
-                                        <ButtonAnimated client:load label={item.label}/>
-                                    </a>
+                                        <ButtonAnimated 
+                                            client:load 
+                                            label={item.label}
+                                            href={item.route}
+                                            className={"border-[0.1px]  border-zinc-50/50"}
+                                            initColor={constColors.white}
+                                            initBgColor={constColors.white + '00'} 
+                                            hoverBgColor={constColors.white}
+                                            hoverColor={constColors.darkGreen}
+                                            />
+                                        )
+                                    }
+                                    return (
+                                        <ButtonAnimated 
+                                        client:load
+                                        className=""
+                                        label={item.label}
+                                        href={item.route}
+                                        initColor={constColors.white}
+                                        hoverColor={constColors.yellowGreen}
+                                        initBgColor={constColors.white + '00'}
+                                        hoverBgColor={constColors.white + '00'}
+                                    />
                                 )
                             })
                         }
                     </div>
+                    <div className="items-center flex flex-row">
+                        <ButtonAnimated 
+                            client:load 
+                            label={'↗ CONTACT US'}
+                            href={'/mitra-adikarsa/contact'}
+                            className={"font-black"}
+                            initColor={constColors.darkGreen}
+                            initBgColor={constColors.white} 
+                            hoverBgColor={constColors.yellowGreen2}
+                            hoverColor={constColors.darkGreen}
+                        />
+                    </div>
+                    </>
                 )
             }
             {
