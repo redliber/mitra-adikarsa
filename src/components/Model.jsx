@@ -82,4 +82,4 @@ export function Model(props) {
   )
 }
 
-useGLTF.preload(modelPath)
+useGLTF.preload('./company-logo-3d.glb')
