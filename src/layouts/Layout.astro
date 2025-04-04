@@ -1,5 +1,6 @@
 ---
 import Header from "../components/Header"
+import Footer from "../components/Footer"
 import '../assets/styles/global.css'
 import '@fontsource-variable/space-grotesk';
 import favicon from '../../public/favicon.svg'
@@ -27,6 +28,7 @@ currentPath = currentPath[-1] == "/" ? currentPath.slice(0,-1) : currentPath
 			class="w-full min-h-[100vh] text-[#FEFBDF]">
 			<slot  />
 		</div>
+		<Footer client:load/>
 	</body>
 </html>
 

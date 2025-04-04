@@ -34,7 +34,7 @@ export default function Hero ({title}) {
         >
             <p
                 ref={scope}
-                className="text-[12vw] leading-[11vw] max-w-5xl"
+                className="text-[12vw] leading-[11vw] max-w-7xl"
                 style={{ opacity: 0, transform: 'translateY(75px)' }}
             >
                 {title} 
