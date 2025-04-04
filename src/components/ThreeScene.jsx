@@ -23,7 +23,7 @@ export default function ThreeScene() {
             delay: 1,
             stiffness: 200,
             }}
-            className='z-[99] h-[100vh] w-full'
+            className='z-[99] h-[175vh] w-full'
         >
             <Canvas 
                 ref={canvasRef} 
@@ -33,16 +33,14 @@ export default function ThreeScene() {
                     environmentIntensity={0.75} 
                     preset='city'/>
                 <PerspectiveCamera makeDefault      
-                    position={[-0.1,0,6]}
+                    position={[0,-0.25,7]}
                     // rotation={[0,0.3  ,0.12]}
                 />
 
                 <Model client:load />
-                <ContactShadows position={[0, -1.78, 0]} opacity={0.2} scale={10} blur={0.5} far={4} />
-
                 <ambientLight intensity={0.5} />
                 {/* <OrbitControls/> */}
-                {/* <directionalLight  position={[0, 0, 5]} color="white" /> */}
+                <directionalLight  position={[0, 0, 5]} color="white" />
                 {/* <SpotLight
                     position={[1,4,1]}
                     intensity={25}
@@ -52,7 +50,7 @@ export default function ThreeScene() {
                     anglePower={20}
                 /> */}
                 <EffectComposer>
-                    {/* <DepthOfField focusDistance={0} focalLength={0.02} bokehScale={2} height={480} /> */}
+                    {/* <DepthOfField focusDistance={0.5} focalLength={0.02} bokehScale={1} height={480} /> */}
 
                 </EffectComposer>
             </Canvas>

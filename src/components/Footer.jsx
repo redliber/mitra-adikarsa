@@ -35,7 +35,7 @@ export default function Footer({}) {
 
     return (
         <div ref={ref}>
-            <div ref={scope} className="w-full min-h-80 flex flex-col  px-24 pt-24 mt-72 border-t-[0.1px] border-zinc-50/35 grainy-bg glassmorphism inset-shadow-sm" style={{
+            <div ref={scope} className="w-full min-h-72 flex flex-col  px-24 pt-24 mt-10 border-t-[0.1px] border-zinc-50/35 grainy-bg glassmorphism inset-shadow-sm" style={{
                 background: constColors.darkGreen2,
                 transform: 'translateY(300px)'
             }}>

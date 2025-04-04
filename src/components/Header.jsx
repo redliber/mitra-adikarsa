@@ -41,14 +41,14 @@ export default function Header({currentPath}) {
     }
 
     const animateState = {
-        backgroundColor: 'rgba(10, 77, 71, 0.75)'
+        backgroundColor: constColors.darkGreen
     }
     const animateTransition = {
         duration: 0.5, type : 'spring'
     }
 
     const regularState = {
-        backgroundColor: 'rgba(5,40,37,0.75)'
+        backgroundColor: constColors.darkGreen3
     }
     const regularTransition = {
         duration: 2, type: 'spring'
@@ -65,7 +65,7 @@ export default function Header({currentPath}) {
     return (
         <div 
             ref={scope}
-            className="w-full min-h-[25px] flex flex-row justify-between py-6 px-14 text-sm border-b-[0.1px] border-zinc-50/35 sticky top-0 grainy-bg glassmorphism z-99"
+            className="w-full min-h-[25px] flex flex-row justify-between py-6 px-24 text-sm border-b-[0.1px] border-zinc-50/35 sticky top-0 grainy-bg z-[99]"
             style={regularState}
 
         >

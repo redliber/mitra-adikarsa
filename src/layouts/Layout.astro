@@ -24,7 +24,7 @@ currentPath = currentPath[-1] == "/" ? currentPath.slice(0,-1) : currentPath
 	<body class="grainy-bg dark-green-color">
 		<Header client:load transition:persist currentPath={currentPath} />
 		<div 
-			transition:animate={slide({duration: "1s"})} 
+			transition:animate="fade" 
 			class="w-full min-h-[100vh] text-[#FEFBDF]">
 			<slot  />
 		</div>

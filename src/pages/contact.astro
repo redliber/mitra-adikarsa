@@ -1,5 +1,5 @@
 ---
-import Hero from '../components/Hero';
+import HeroCaption from '../components/HeroCaption';
 import Layout from '../layouts/Layout.astro';
 ---
 
@@ -7,7 +7,10 @@ import Layout from '../layouts/Layout.astro';
     <div class="w-full min-h-screen">
         <div class="m-16 flex flex-col">
             <div class="">
-                <Hero client:load title={'CONTACT US'}/>
+                <HeroCaption client:load 
+                duration={2}
+                stagger={0.5}
+                filter={true} className={'text-[6vw] leading-[5vw] max-w-5xl'} words={'CONTACT US'}/>
             </div>
         </div>
 	</div>
