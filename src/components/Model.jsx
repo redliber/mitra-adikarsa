@@ -6,7 +6,7 @@ import { constColors } from '../lib/const'
 import { useFrame } from '@react-three/fiber'
 import { useWindowScroll } from '@uidotdev/usehooks'
 
-const modelPath = './src/components/company-logo-3d.glb'
+const modelPath = 'src/components/company-logo-3d.glb'
 
 const greenMat = new MeshStandardMaterial({
     transparent: true,
