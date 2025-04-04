@@ -1,6 +1,6 @@
 'use client'
 import React, { useRef } from 'react'
-import { MeshReflectorMaterial, MeshTransmissionMaterial, useGLTF } from '@react-three/drei'
+import { MeshReflectorMaterial, MeshTransmissionMaterial, useGLTF, Gltf } from '@react-three/drei'
 import { MeshStandardMaterial, FrontSide, AdditiveBlending, MathUtils } from 'three'
 import { constColors } from '../lib/const'
 import { useFrame } from '@react-three/fiber'
@@ -36,7 +36,7 @@ const whiteMat = new MeshStandardMaterial({
 export function Model(props) {
     const ref = useRef()
     const groupRef = useRef()
-    const { nodes, materials } = useGLTF('../components/company-logo-3d.glb')
+    const { nodes, materials } = useGLTF('company-logo-3d.glb')
 
     const [{ x, y }, scrollTo] = useWindowScroll();
 
@@ -82,4 +82,4 @@ export function Model(props) {
   )
 }
 
-useGLTF.preload('../components/company-logo-3d.glb')
+useGLTF.preload('company-logo-3d.glb')
