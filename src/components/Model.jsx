@@ -6,8 +6,6 @@ import { constColors } from '../lib/const'
 import { useFrame } from '@react-three/fiber'
 import { useWindowScroll } from '@uidotdev/usehooks'
 
-const modelPath = './company-logo-3d.glb'
-
 const greenMat = new MeshStandardMaterial({
     transparent: true,
     opacity: 1,
@@ -38,7 +36,7 @@ const whiteMat = new MeshStandardMaterial({
 export function Model(props) {
     const ref = useRef()
     const groupRef = useRef()
-    const { nodes, materials } = useGLTF(modelPath)
+    const { nodes, materials } = useGLTF('./company-logo-3d.glb')
 
     const [{ x, y }, scrollTo] = useWindowScroll();
 
