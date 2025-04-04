@@ -36,7 +36,7 @@ const whiteMat = new MeshStandardMaterial({
 export function Model(props) {
     const ref = useRef()
     const groupRef = useRef()
-    const { nodes, materials } = useGLTF('./company-logo-3d.glb')
+    const { nodes, materials } = useGLTF('../components/company-logo-3d.glb')
 
     const [{ x, y }, scrollTo] = useWindowScroll();
 
@@ -82,4 +82,4 @@ export function Model(props) {
   )
 }
 
-useGLTF.preload('./company-logo-3d.glb')
+useGLTF.preload('../components/company-logo-3d.glb')
