@@ -57,12 +57,6 @@ function WordAnimated ({startAnimation, word, stagger, staggerAmt}) {
                 y: 0,
                 filter: 'blur(0px)'
             }, { duration: 3, delay: stagger * staggerAmt, type: "spring" });
-        } else {
-            animate(scope.current, {
-                opacity: 0,
-                y: 200,
-                filter: 'blur(20px)'
-            }, { duration: 1, delay: stagger * staggerAmt, type: "spring" });
         }
     })
     return (

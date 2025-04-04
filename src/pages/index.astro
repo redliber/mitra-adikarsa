@@ -53,7 +53,7 @@ const words = 'Solusi infrastruktur kelistrikan yang andal dan inovatif guna men
 						/>
 				</div>
 			</div>
-			<div class="max-h-[75vh] overflow-hidden border-b-[0.1px] border-zinc-50/35">
+			<div class="max-h-[75vh] overflow-hidden border-t-[0.5px] border-zinc-50/35">
 				<img src={electricLines.src} alt="electric lines" height={200} class="origin-bottom -translate-y-2/5"/>
 			</div>
 		</div>
@@ -67,7 +67,7 @@ const words = 'Solusi infrastruktur kelistrikan yang andal dan inovatif guna men
 				stagger={0.1}
 				filter={true}
 				words={words}
-				className={'py-12 text-5xl leading-[3.5rem] font-thin max-w-[75vw]'}
+				className={'py-12 text-5xl leading-[3.5rem] font-thin text-center'}
 			/>
 		</div>
 		<div class="min-h-[100vh] flex flex-row">
@@ -92,25 +92,27 @@ const words = 'Solusi infrastruktur kelistrikan yang andal dan inovatif guna men
 				<Clients/>
 			</SectionFadeIn>
 		</div>
-		<SectionFadeIn className="w-full border-t-[0.1px] border-b-[0.1px] border-zinc-50/35 py-30 shadow-2xl flex flex-col gap-20 px-24 grainy-bg dark-green-color z-[94]" client:load>
-			<HeroCaption
-				client:load
-				duration={2}
-				stagger={0.1}
-				filter={true}
-				words={'Our Services'}
-				className={'text-5xl leading-[3rem] font-thin text-center'}
-			/>
-			<div class="flex flex-wrap w-full my-20">
-				<FrontPageCards client:load/>
-			</div>
-		</SectionFadeIn>
+		<div class="z-[94]">
+			<SectionFadeIn className="w-full border-t-[0.1px] border-b-[0.1px] border-zinc-50/35 py-30 shadow-2xl flex flex-col gap-20 px-24 grainy-bg dark-green-color " client:load>
+				<HeroCaption
+					client:load
+					duration={2}
+					stagger={0.1}
+					filter={true}
+					words={'Our Services'}
+					className={'text-5xl leading-[3rem] font-thin text-center'}
+				/>
+				<div class="flex flex-wrap w-full my-20">
+					<FrontPageCards client:load/>
+				</div>
+			</SectionFadeIn>
+		</div>
 		<SectionFadeIn client:load className="pt-30 px-24 dark-green-color grainy-bg z-[93] flex flex-col">
 				<div class="my-10 flex flex-col gap-10 max-w-4xl">
 					<HeroCaption client:load 
 						duration={2}
 						stagger={0.5}
-						filter={true} className={'text-[6vw] leading-[5vw] max-w-4xl'} words={'Learn More About Us'}/>
+						filter={true} className={'text-[6vw] leading-[5vw] max-w-3xl'} words={'Learn More About Us'}/>
 					<!-- <div class="w-max-sm"> -->
 						<ButtonAnimated 
 							client:load 
@@ -125,12 +127,12 @@ const words = 'Solusi infrastruktur kelistrikan yang andal dan inovatif guna men
 					<!-- </div> -->
 				</div>
 				<div class="flex flex-row">
-					<div class="h-[60vh] max-h-[50vh] max-w-[50vw] overflow-hidden">
+					<div class="h-[60vh] max-h-[25vw] max-w-[50vw] overflow-hidden">
 						<div>
 							<Image src={bulldozer} alt="bulldozer"/>
 						</div>
 					</div>
-					<div class="h-[60vh] max-h-[50vh] max-w-[50vw] overflow-hidden">
+					<div class="h-[60vh] max-h-[25vw] max-w-[50vw] overflow-hidden">
 						<div>
 							<Image src={contact1} alt="contact1"/>
 						</div>

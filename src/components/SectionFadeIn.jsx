@@ -23,12 +23,7 @@ export default function SectionFadeIn  ({
                 opacity: 1,
                 filter: 'blur(0px)'
             }, {duration: 1.5, type: "ease"})
-        } else {
-            animate(scope.current, {
-                opacity: 0,
-                filter: 'blur(50px)'
-            }, {duration: 2, type: "ease"})
-        } 
+        }
     })
 
     return (

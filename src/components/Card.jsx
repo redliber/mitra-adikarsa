@@ -36,7 +36,7 @@ export default function Card({heading, body}) {
         <div
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            ref={scope} className="min-h-1/2 max-w-lg border-[0.1px] flex flex-col  border-zinc-50/35 p-16 rounded-xs grainy-bg" 
+            ref={scope} className="min-h-1/3 max-w-lg border-[0.1px] flex flex-col  border-zinc-50/35 p-16 rounded-xs grainy-bg" 
             // style={{ backgroundColor: 'rgba(4, 17, 16, 1)'}}
         >
             <div ref={textScope} className='flex flex-col gap-10'>
