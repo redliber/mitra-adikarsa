@@ -18,12 +18,12 @@ export default function ThreeScene() {
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{
-            type: 'ease',
-            duration: 1,
-            delay: 1,
-            stiffness: 200,
+                type: 'ease',
+                duration: 1,
+                delay: 1,
+                stiffness: 200,
             }}
-            className='z-[99] h-[175vh] w-full'
+            className='z-[98] h-[100vh] md:h-[150vh]'
         >
             <Canvas 
                 ref={canvasRef} 
@@ -33,7 +33,7 @@ export default function ThreeScene() {
                     environmentIntensity={0.75} 
                     preset='city'/>
                 <PerspectiveCamera makeDefault      
-                    position={[0,-0.25,7]}
+                    position={[-0.5,0,7.5]}
                     // rotation={[0,0.3  ,0.12]}
                 />
 

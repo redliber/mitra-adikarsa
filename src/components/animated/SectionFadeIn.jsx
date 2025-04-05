@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 // import { motion, stagger, useAnimate } from "motion/react";
 import { useAnimate } from "framer-motion"
-import { cn } from '../lib/utils.js'
 import { useIntersectionObserver } from "@uidotdev/usehooks";
 import { filter } from "framer-motion/client";
 

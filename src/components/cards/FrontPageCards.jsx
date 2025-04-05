@@ -10,7 +10,7 @@ export default function FrontPageCards() {
         {heading: 'Personal support', body: 'I know how exhausting it can be to do it all by yourself, especially when you dont feel like yourself! Ill be here to support you and maintain your vision whenever you feel overwhelmed or frustrated.'},
     ]
     return (
-        <div className="flex flex-wrap gap-10 place-content-center">
+        <div className="flex flex-col md:flex-row md:flex-wrap gap-10 justify-center">
             {
                 servicesData.map((item, idx) => {
                     return (

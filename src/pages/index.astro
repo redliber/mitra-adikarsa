@@ -1,46 +1,52 @@
 ---
+import '../styles/global.css';
 import { Image } from 'astro:assets';
-import ButtonAnimated from '../components/Button-Animated';
-import HeroCaption from '../components/HeroCaption';
-import SectionFadeIn from '../components/SectionFadeIn'
-import Clients from '../components/Clients'
-import FrontPageCards from '../components/FrontPageCards'
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import { constColors } from '../lib/const';
 
+// Components
+import ButtonAnimated from '../components/animated/ButtonAnimated';
+import Hero from '../components/texts/Hero';
+import Caption from '../components/texts/Caption';
+import SubCaption from '../components/texts/SubCaption';
+import GeneralSection from '../components/sections/GeneralSection'
+import FullImageSection from '../components/sections/FullImageSection'
+import SectionFadeIn from '../components/animated/SectionFadeIn'
+import Clients from '../components/Clients'
+import FrontPageCards from '../components/cards/FrontPageCards'
+import ImageWithAspect from "../components/ImageWithAspect.astro"
+import ThreeScene from "../components/ThreeScene"
+
+// Images
 import electricLines from "../assets/media/stock/electric-lines.jpg"
 import field from "../assets/media/stock/field.jpg"
 import contact1 from "../assets/media/stock/contact1.jpg"
 import bulldozer from "../assets/media/stock/bulldozer.jpg"
 
-import ImageWithAspect from "../components/ImageWithAspect.astro"
-import ThreeScene from "../components/ThreeScene"
-import { constColors } from '../lib/const';
-import '../assets/styles/global.css'
 
 const electricLinesPath = `url("../assets/media/stock/electric-lines.jpg")`
 const words = 'Solusi infrastruktur kelistrikan yang andal dan inovatif guna mendukung kemajuan Indonesia. Dengan mengutamakan keselamatan, efisiensi, dan standar kualitas tertinggi, kami memastikan pembangunan infrastruktur kelistrikan yang berkelanjutan dan berdaya saing.'
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+
 ---
 
 <Layout>
-	<div 
-		class="w-full flex flex-col"
-	>
-		<div class="-mb-96" id="main-hero">
-			<div class="my-12 mx-24 flex flex-row justify-between ">
-				<div class="">
-					<HeroCaption client:load 
-						duration={2}
-						stagger={0.5}
-						filter={true} className={'text-[6vw] leading-[5vw] max-w-5xl'} words={'ONE-STOP ELECTRICAL SOLUTION'}/>
-					</div>
-					<div class="text-xl flex flex-col items-end gap-10">
-						<HeroCaption client:load 
-							duration={2}
-							stagger={0.02}
-							filter={true} className={'text-3xl font-thin max-w-5xl text-right'} words={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque volutpat faucibus varius. Integer tristique posuere est, vel egestas dui mollis sed. Phasellus euismod sed neque sed iaculis.'}/>
+	<div id="index-main-container" class="w-full flex flex-col">
+		<GeneralSection id="index-hero-top" >
+			<div class="flex flex-col md:flex-row justify-between gap-10">
+				<Hero 
+					client:load 
+					duration={1.5}
+					stagger={0.05}
+					filter={true} 
+					words={'ONE-STOP ELECTRICAL SOLUTION'}/>
+				<div class="text-xl flex flex-col items-end gap-10">
+					<SubCaption client:load 
+						duration={0.5}
+						stagger={0.02}
+						filter={true}
+						className={'text-right'}
+						words={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque volutpat faucibus varius. Integer tristique posuere est, vel egestas dui mollis sed. Phasellus euismod sed neque sed iaculis.'}/>
+					<SectionFadeIn className={''} client:load>
 						<ButtonAnimated 
 							client:load 
 							label={'WHAT WE OFFER'}
@@ -51,94 +57,118 @@ const words = 'Solusi infrastruktur kelistrikan yang andal dan inovatif guna men
 							hoverBgColor={constColors.yellowGreen2}
 							hoverColor={constColors.darkGreen}
 						/>
+					</SectionFadeIn>
 				</div>
 			</div>
-			<div class="max-h-[75vh] overflow-hidden border-t-[0.5px] border-zinc-50/35">
-				<img src={electricLines.src} alt="electric lines" height={200} class="origin-bottom -translate-y-2/5"/>
+		</GeneralSection>
+		<FullImageSection id="index-hero-picture">
+			<div class="max-h-[150vh] md:max-h-[75vh] overflow-hidden ">
+				<img src={electricLines.src} alt="electric lines" height={200} class="origin-bottom -translate-y-0.5 md:-translate-y-2/5"/>
 			</div>
-		</div>
-		<div class=" h-[80vh] w-[100vw] z-[91]">
+		</FullImageSection>
+		<section class='z-[98] h-[100vh] md:h-[100vh] -mt-[0vh] md:-mt-[55vh]'>
 			<ThreeScene client:load />
+		</section>
+		<div class="w-full">
+			<GeneralSection id="index-hero-caption" additionalClasses='grainy-bg dark-green-color relative md:sticky md:top-0 pt-0 md:pt-20 flex flex-col w-full'>
+				<Caption animateText={false} words={words}/>
+			</GeneralSection>
+			<FullImageSection id="index-hero-picture">
+				<div class="max-h-[75vh] overflow-hidden ">
+					<img src={field.src} alt="field" height={'1000vh'} class=""/>
+				</div>
+			</FullImageSection>
 		</div>
-		<div class="sticky top-0 z-[90] px-24 flex flex-col border-b-[0.1px] border-zinc-50/35  grainy-bg dark-green-color ">
-			<HeroCaption
-				client:load
-				duration={2}
-				stagger={0.1}
-				filter={true}
-				words={words}
-				className={'py-12 text-5xl leading-[3.5rem] font-thin text-center'}
-			/>
-		</div>
-		<div class="min-h-[100vh] flex flex-row">
-			<div>
-				<Image src={field} alt="field"/>
-			</div>
-		</div>
-		<div class="w-full border-t-[0.1px] border-zinc-50/35 py-30 flex flex-col items-center gap-4 px-24 inset-shadow-2xs grainy-bg"
+		<GeneralSection 
+			id="index-clients"
+			additionalClasses='grainy-bg w-full flex flex-col items-center gap-4 '
 			style={{
 				backgroundColor: constColors.darkGreen
 			}}
 		>
-			<HeroCaption
+			<Caption
 				client:load
-				duration={2}
-				stagger={0.1}
+				duration={1}
+				stagger={0.025}
 				filter={true}
 				words={'Trusted by Our Clients'}
-				className={'text-5xl leading-[3rem] font-thin'}
+				className={'text-center mb-12'}
 			/>
 			<SectionFadeIn className='' client:load>
 				<Clients/>
 			</SectionFadeIn>
-		</div>
-		<div class="z-[94]">
-			<SectionFadeIn className="w-full border-t-[0.1px] border-b-[0.1px] border-zinc-50/35 py-30 shadow-2xl flex flex-col gap-20 px-24 grainy-bg dark-green-color " client:load>
-				<HeroCaption
-					client:load
-					duration={2}
-					stagger={0.1}
-					filter={true}
-					words={'Our Services'}
-					className={'text-5xl leading-[3rem] font-thin text-center'}
+		</GeneralSection>
+		<GeneralSection id="index-features" additionalClasses={'flex flex-col'} innerClasses='justify-evenly w-full h-full'>
+			<Hero
+				client:load 
+				duration={0.5}
+				stagger={0.1}
+				filter={true}  
+				className={'py-24  '}
+				words={'Strength 1 We do This Thing Really Well with our Services'}
+			/>
+			<Hero
+				client:load 
+				duration={0.5}
+				stagger={0.1}
+				filter={true}  
+				className={'py-24 justify-self-end text-right'}
+				words={'Strength 2 and This Too Amazingly with out Powers'}
+			/>
+			<Hero
+				client:load 
+				duration={0.5}
+				stagger={0.1}
+				filter={true}  
+				className={'py-24  '}
+				words={'Strength 3 Especially This with to our Bestest Capabilities'}
+			/>
+		</GeneralSection>
+		<GeneralSection id="index-services">
+			<Caption
+				client:load
+				duration={1}
+				stagger={0.025}
+				filter={true}
+				words={'Our Services'}
+				className={'text-center pb-12'}
+			/>
+			<div class="w-full">
+				<FrontPageCards client:load/>
+			</div>
+		</GeneralSection>
+		<GeneralSection id='index-about'>
+            <div class=" flex flex-col gap-10 max-w-4xl">
+                <Hero
+					client:load 
+                    duration={0.5}
+                    stagger={0.1}
+                    filter={true}  
+					words={'Learn More About Us'}
+					/>
+				<ButtonAnimated 
+					client:load 
+					label={"WHAT WE'RE ALL ABOUT"}
+					href={'/mitra-adikarsa/about'}
+					className={"font-black w-max-xs w-xs my-10"}
+					initColor={constColors.darkGreen}
+					initBgColor={constColors.white} 
+					hoverBgColor={constColors.yellowGreen2}
+					hoverColor={constColors.darkGreen}
 				/>
-				<div class="flex flex-wrap w-full my-20">
-					<FrontPageCards client:load/>
-				</div>
-			</SectionFadeIn>
-		</div>
-		<SectionFadeIn client:load className="pt-30 px-24 dark-green-color grainy-bg z-[93] flex flex-col">
-				<div class="my-10 flex flex-col gap-10 max-w-4xl">
-					<HeroCaption client:load 
-						duration={2}
-						stagger={0.5}
-						filter={true} className={'text-[6vw] leading-[5vw] max-w-3xl'} words={'Learn More About Us'}/>
-					<!-- <div class="w-max-sm"> -->
-						<ButtonAnimated 
-							client:load 
-							label={"WHAT WE'RE ALL ABOUT"}
-							href={'/mitra-adikarsa/about'}
-							className={"font-black w-max-xs w-xs"}
-							initColor={constColors.darkGreen}
-							initBgColor={constColors.white} 
-							hoverBgColor={constColors.yellowGreen2}
-							hoverColor={constColors.darkGreen}
-						/>
-					<!-- </div> -->
-				</div>
-				<div class="flex flex-row">
-					<div class="h-[60vh] max-h-[25vw] max-w-[50vw] overflow-hidden">
-						<div>
-							<Image src={bulldozer} alt="bulldozer"/>
-						</div>
-					</div>
-					<div class="h-[60vh] max-h-[25vw] max-w-[50vw] overflow-hidden">
-						<div>
-							<Image src={contact1} alt="contact1"/>
-						</div>
-					</div>
-				</div>
-		</SectionFadeIn>
-
+            </div>
+            <div class="flex flex-col sm:flex-row">
+                <div class="max-h-full sm:max-h-[25vw] max-w-full sm:max-w-[50vw] overflow-hidden">
+                    <div>
+                        <Image src={bulldozer} alt="bulldozer"/>
+                    </div>
+                </div>
+                <div class="max-h-full sm:max-h-[25vw] max-w-full sm:max-w-[50vw] overflow-hidden">
+                    <div>
+                        <Image src={contact1} alt="contact1"/>
+                    </div>
+                </div>
+            </div>
+    	</GeneralSection>
 	</div>
 </Layout>

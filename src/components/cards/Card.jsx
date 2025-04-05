@@ -1,6 +1,6 @@
 import { useAnimate } from 'framer-motion'
-import '../assets/styles/global.css'
-import { constColors } from '../lib/const'
+import '../../styles/global.css'
+import { constColors } from '../../lib/const.js'
 import { useEffect, useState } from 'react'
 
 export default function Card({heading, body}) {
@@ -11,12 +11,12 @@ export default function Card({heading, body}) {
     useEffect(() => {
         if (hovered) {
             animate(scope.current, {
-                scale: 0.95, backgroundColor: constColors.yellowGreen2
+                scale: 0.975, backgroundColor: constColors.yellowGreen2
             }, {
                 duration: 0.1, transition: "ease"
             })
             textAnimate(textScope.current, {
-                scale: 1.1,
+                scale: 1.05,
                 color: constColors.darkGreen
             }, {duration:0.25})
         } else {
@@ -36,13 +36,21 @@ export default function Card({heading, body}) {
         <div
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            ref={scope} className="min-h-1/3 max-w-lg border-[0.1px] flex flex-col  border-zinc-50/35 p-16 rounded-xs grainy-bg" 
+            ref={scope} 
+            className="
+                min-h-80 
+                w-full md:w-1/2 lg:w-1/3
+                border-[0.1px]
+                border-zinc-50/35 
+                py-16 px-10 md:px-10 md:py-10 rounded-xs grainy-bg shadow-2xl" 
             // style={{ backgroundColor: 'rgba(4, 17, 16, 1)'}}
         >
-            <div ref={textScope} className='flex flex-col gap-10'>
-                <p className="font-black text-2xl" >{heading}</p>
-                <div className='max-w-1/3 border-zinc-50/35 border-[1px]'></div>
-                <p>{body}</p>
+            <div ref={textScope} className='flex flex-col h-full place-content-between'>
+                <p className="font-black text-2xl self-start" >{heading}</p>
+                <div className='max-w-1/6 my-10'>
+                    <div className='w-full border-zinc-50/35 border-[1px]'></div>
+                </div>
+                <p className='place-self-end'>{body}</p>
             </div>
         </div>
     )

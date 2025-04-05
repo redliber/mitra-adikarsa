@@ -1,7 +1,6 @@
 'use client'
 import { color, hover, useAnimate } from "framer-motion"
 import { useEffect, useState } from "react"
-import { constColors } from "../lib/const"
 
 export default function ButtonAnimated({
     label, 

@@ -1,6 +1,7 @@
 ---
-import ButtonAnimated from '../components/Button-Animated';
-import HeroCaption from '../components/HeroCaption';
+import ButtonAnimated from '../components/animated/ButtonAnimated';
+import Hero from '../components/texts/Hero';
+
 import Layout from '../layouts/Layout.astro';
 
 import electricLines from "../assets/media/stock/electric-lines.jpg"
@@ -14,13 +15,13 @@ import bulldozer from "../assets/media/stock/bulldozer.jpg"
 		<div class="-mb-96" id="main-hero">
 			<div class="my-12 mx-24 flex flex-row justify-between ">
 				<div class="">
-					<HeroCaption client:load 
+					<Hero client:load 
 						duration={2}
 						stagger={0.5}
 						filter={true} className={'text-[6vw] leading-[5vw] max-w-5xl'} words={'ABOUT US'}/>
 					</div>
 					<div class="text-xl flex flex-col items-end gap-10">
-						<HeroCaption client:load 
+						<Hero client:load 
 							duration={2}
 							stagger={0.02}
 							filter={true} className={'text-3xl font-thin max-w-5xl text-right'} words={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque volutpat faucibus varius. Integer tristique posuere est, vel egestas dui mollis sed. Phasellus euismod sed neque sed iaculis.'}/>

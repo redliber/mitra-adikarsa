@@ -6,10 +6,9 @@ import clientGBK from '../assets/media/clients/client-gbk.png'
 import clientPatriot from '../assets/media/clients/client-patriot.png'
 import clientSwatantra from '../assets/media/clients/client-swatantra.png'
 import clientFiberstar from '../assets/media/clients/client-fiberstar.png'
+
 import Marquee from "react-fast-marquee";
 import { constColors } from '../lib/const'
-import HeroCaption from './HeroCaption'
-import SectionFadeIn from './SectionFadeIn'
 
 
 export default function Clients() {
@@ -29,7 +28,7 @@ export default function Clients() {
             <div className='w-full flex flex-row'>
                 {   
                     clientsPath.map((item, idx) => (
-                        <img src={item} alt="company-logo" className="m-2 w-[150px]" />
+                        <img src={item} alt="company-logo" className="m-2 w-[10vw]" />
                     ))
                 }
             </div>

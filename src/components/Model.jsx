@@ -33,15 +33,22 @@ const whiteMat = new MeshStandardMaterial({
     // envMapIntensity: 2
   })
 
+// FOR DEV
+// const modelPath = 'src/components/company-logo-3d.glb'
+
+// FOR DEPLOYMENT
+const modelPath = 'company-logo-3d.glb'
+
 export function Model(props) {
     const ref = useRef()
     const groupRef = useRef()
-    const { nodes, materials } = useGLTF('company-logo-3d.glb')
+    
+    const { nodes, materials } = useGLTF(modelPath)
 
     const [{ x, y }, scrollTo] = useWindowScroll();
 
     useFrame((state) => {
-        groupRef.current.rotation.y = MathUtils.lerp(groupRef.current.rotation.y, y/800, 0.075)
+        groupRef.current.rotation.y = MathUtils.lerp(groupRef.current.rotation.y, y/1600, 0.1)
     })
 
     useFrame((state) => {
@@ -53,7 +60,7 @@ export function Model(props) {
     return (
         <group ref={groupRef}>
         <group {...props} dispose={null} 
-            rotation={[45,0,0]}
+            rotation={[45,0,0.25]}
             >
                 <group {...props} ref={ref}>
                     <mesh
@@ -82,4 +89,4 @@ export function Model(props) {
   )
 }
 
-useGLTF.preload('company-logo-3d.glb')
+useGLTF.preload(modelPath)

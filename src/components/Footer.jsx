@@ -1,10 +1,10 @@
 import companylogo from "../assets/media/company-logo.svg"
 import { constColors } from "../lib/const"
-import '../assets/styles/global.css'
+import '../styles/global.css'
 import { useAnimate } from "framer-motion"
 import { useEffect } from "react"
 import { useIntersectionObserver } from "@uidotdev/usehooks"
-import ButtonAnimated from "./Button-Animated"
+import ButtonAnimated from "./animated/ButtonAnimated"
 
 
 export default function Footer({}) {
@@ -18,7 +18,8 @@ export default function Footer({}) {
     useEffect(() => {
         if (entry?.isIntersecting) {
             animate(scope.current, {
-              y: 0,
+            //   y: 0,
+              opacity: 1
             }, { duration: 3, type: "inertia" });
             animate(scope.current, {
                 opacity: 1
@@ -28,19 +29,22 @@ export default function Footer({}) {
           } else {
             animate(scope.current, {
               opacity: 0,
-              y: 300,
+            //   y: 300,
             }, { duration: 1 });
           }
     })
 
     return (
         <div ref={ref}>
-            <div ref={scope} className="w-full min-h-72 flex flex-col  px-24 pt-24 mt-10 border-t-[0.1px] border-zinc-50/35 grainy-bg glassmorphism inset-shadow-sm" style={{
+            <div ref={scope} className="w-full flex flex-col  
+            py-20 md:py-4 px-6 md:px-20  
+            border-t-[0.1px] border-zinc-50/35 grainy-bg glassmorphism inset-shadow-sm" style={{
                 background: constColors.darkGreen2,
-                transform: 'translateY(300px)'
+                // transform: 'translateY(300px)'
+                opacity:0   
             }}>
-                <div className="flex flex-row w-full justify-between">
-                    <div className="flex flex-col align-start gap-6">
+                <div className="flex flex-col md:flex-row w-full justify-between">
+                    <div className="flex flex-col align-start gap-6 mb-24">
                         <div className="flex flex-row items-center gap-2">
                             <img src={companylogo.src} alt="company-logo" width={50}/>
                             <a href="/mitra-adikarsa" className="leading-[0.8rem]">
@@ -51,7 +55,7 @@ export default function Footer({}) {
                             <p>Copyright 2025 © Mitra Adikarsa <br></br> All Rights Reserved</p>
                         </div>
                     </div>
-                    <div className="flex flex-row gap-24">
+                    <div className="flex flex-col md:flex-row gap-24">
                         <div className="flex flex-col">
                             <p className="mb-10 font-black">PAGES</p>
                             <p>SERVICES</p>
@@ -85,7 +89,7 @@ export default function Footer({}) {
                         </div>
                     </div>
                 </div>
-                <div className="border-t-[0.1px] border-zinc-50/35 py-6 mt-36">
+                <div className="border-t-[0.1px] border-zinc-50/35 py-6 mt-36 text-xs">
                     <p>MADE BY BENJAMIN CLAUDE CHENIER</p>
                 </div>
             </div>
