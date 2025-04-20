@@ -37,13 +37,13 @@ export default function Footer({}) {
     return (
         <div ref={ref}>
             <div ref={scope} className="w-full flex flex-col  
-            py-20 md:py-4 px-6 md:px-20  
+            py-20 md:py-20 px-6 md:px-20  
             border-t-[0.1px] border-zinc-50/35 grainy-bg glassmorphism inset-shadow-sm" style={{
                 background: constColors.darkGreen2,
                 // transform: 'translateY(300px)'
                 opacity:0   
             }}>
-                <div className="flex flex-col md:flex-row w-full justify-between">
+                <div className="flex flex-col md:flex-col lg:flex-row w-full justify-between">
                     <div className="flex flex-col align-start gap-6 mb-24">
                         <div className="flex flex-row items-center gap-2">
                             <img src={companylogo.src} alt="company-logo" width={50}/>
@@ -52,7 +52,7 @@ export default function Footer({}) {
                             </a>
                         </div>
                         <div className="text-xs leading-[0.8rem] font-thin">
-                            <p>Copyright 2025 © Mitra Adikarsa <br></br> All Rights Reserved</p>
+                            <p>Copyright 2025 © PT. Mitra Adikarsa <br></br> All Rights Reserved</p>
                         </div>
                     </div>
                     <div className="flex flex-col md:flex-row gap-24">
@@ -64,7 +64,7 @@ export default function Footer({}) {
                             <p>HOME</p>
                         </div>
                         <div className="flex flex-col">
-                            <p className="mb-10 font-black">LOCATION</p>
+                            <p className="mb-10 font-black">LOCATIONS</p>
                             <p className="font-bold">KALIDERES</p>
                             <p className="font-extralight leading-tight text-zinc-50 pb-4">Jl. Peta Barat Citra Business Park <br></br>Blok F No.33 Kalideres<br></br>Jakarta Barat, DKI Jakarta 11840</p>
                             <p className="font-bold">BEKASI</p>
@@ -90,7 +90,7 @@ export default function Footer({}) {
                     </div>
                 </div>
                 <div className="border-t-[0.1px] border-zinc-50/35 py-6 mt-36 text-xs">
-                    <p>MADE BY BENJAMIN CLAUDE CHENIER</p>
+                    <p>MADE BY BENJAMIN BERNARD CHENIER</p>
                 </div>
             </div>
         </div>

@@ -2,7 +2,6 @@
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import '../styles/global.css'
-import '@fontsource-variable/space-grotesk';
 import favicon from '../../public/favicon.svg'
 import { ClientRouter, slide } from "astro:transitions";
 
@@ -21,9 +20,9 @@ currentPath = currentPath[-1] == "/" ? currentPath.slice(0,-1) : currentPath
 		<title>Mitra Adikarsa</title>
 		<ClientRouter/>
 	</head>
-	<body class="grainy-bg dark-green-color">
+	<body class="dark-green-color font-sans">
 		<div 
-			transition:animate="fade" 
+			transition:animate="slide" 
 			class="w-full  text-[#FEFBDF]"
 		>
 			<Header client:load transition:persist currentPath={currentPath} />

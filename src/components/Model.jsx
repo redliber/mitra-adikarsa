@@ -34,10 +34,10 @@ const whiteMat = new MeshStandardMaterial({
   })
 
 // FOR DEV
-// const modelPath = 'src/components/company-logo-3d.glb'
+const modelPath = 'src/components/company-logo-3d.glb'
 
 // FOR DEPLOYMENT
-const modelPath = 'company-logo-3d.glb'
+// const modelPath = 'company-logo-3d.glb'
 
 export function Model(props) {
     const ref = useRef()

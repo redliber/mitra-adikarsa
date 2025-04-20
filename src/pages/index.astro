@@ -14,7 +14,6 @@ import FullImageSection from '../components/sections/FullImageSection'
 import SectionFadeIn from '../components/animated/SectionFadeIn'
 import Clients from '../components/Clients'
 import FrontPageCards from '../components/cards/FrontPageCards'
-import ImageWithAspect from "../components/ImageWithAspect.astro"
 import ThreeScene from "../components/ThreeScene"
 
 // Images
@@ -39,12 +38,12 @@ const words = 'Solusi infrastruktur kelistrikan yang andal dan inovatif guna men
 					stagger={0.05}
 					filter={true} 
 					words={'ONE-STOP ELECTRICAL SOLUTION'}/>
-				<div class="text-xl flex flex-col items-end gap-10">
+				<div class="text-xl flex flex-col items-start md:items-end gap-10">
 					<SubCaption client:load 
 						duration={0.5}
 						stagger={0.02}
 						filter={true}
-						className={'text-right'}
+						className={'text-left md:text-right'}
 						words={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque volutpat faucibus varius. Integer tristique posuere est, vel egestas dui mollis sed. Phasellus euismod sed neque sed iaculis.'}/>
 					<SectionFadeIn className={''} client:load>
 						<ButtonAnimated 
@@ -61,22 +60,19 @@ const words = 'Solusi infrastruktur kelistrikan yang andal dan inovatif guna men
 				</div>
 			</div>
 		</GeneralSection>
-		<FullImageSection id="index-hero-picture">
-			<div class="max-h-[150vh] md:max-h-[75vh] overflow-hidden ">
-				<img src={electricLines.src} alt="electric lines" height={200} class="origin-bottom -translate-y-0.5 md:-translate-y-2/5"/>
-			</div>
+		<FullImageSection id="index-hero-picture" additionalClasses={'max-h-[150vh] md:max-h-[75vh] '}>
+			<img src={electricLines.src} alt="electric lines" height={200} class="origin-bottom -translate-y-0.5 md:-translate-y-2/5"/>
 		</FullImageSection>
-		<section class='z-[98] h-[100vh] md:h-[100vh] -mt-[0vh] md:-mt-[55vh]'>
+		<!-- <section class='z-[98] h-[100vh] md:h-[100vh] -mt-[0vh] md:-mt-[55vh]'>
 			<ThreeScene client:load />
-		</section>
+		</section> -->
 		<div class="w-full">
-			<GeneralSection id="index-hero-caption" additionalClasses='grainy-bg dark-green-color relative md:sticky md:top-0 pt-0 md:pt-20 flex flex-col w-full'>
+			<GeneralSection id="index-hero-caption" additionalClasses='grainy-bg dark-green-color relative md:sticky md:top-0'>
 				<Caption animateText={false} words={words}/>
 			</GeneralSection>
-			<FullImageSection id="index-hero-picture">
-				<div class="max-h-[75vh] overflow-hidden ">
-					<img src={field.src} alt="field" height={'1000vh'} class=""/>
-				</div>
+			<FullImageSection id="index-hero-picture" 									additionalClasses='max-h-[75vh]'
+			>
+				<img src={field.src} alt="field" height={'1000vh'} class=""/>
 			</FullImageSection>
 		</div>
 		<GeneralSection 

@@ -14,7 +14,9 @@ export default function Header({currentPath}) {
     const [{ x, y }, scrollTo] = useWindowScroll()
     const [scope, animate] = useAnimate()
     const [overlayScope, overlayAnimate] = useAnimate()
-    const [useTab, openTab] = useState(false)
+
+    const [useOpenTab,setOpenTab] = useState(false)
+    const [useCloseTab,setCloseTab] = useState(true)
 
     const tabs = [
         {
@@ -22,17 +24,13 @@ export default function Header({currentPath}) {
             route: '/mitra-adikarsa'
         },
         {
-            label: 'ABOUT US',
-            route: '/mitra-adikarsa/about'
-        },
-        {
             label: 'OUR SERVICES',
             route: '/mitra-adikarsa/services'
         },
-        // {
-        //     label: 'CONTACT US',
-        //     route: '/mitra-adikarsa/contact'
-        // },
+        {
+            label: 'ABOUT US',
+            route: '/mitra-adikarsa/about'
+        },
     ]
 
     // Find out if the last letter is a slash. If so, removing it.
@@ -61,13 +59,25 @@ export default function Header({currentPath}) {
     useEffect(() => {
         if (y > 50) {
             animate(scope.current, animateState, animateTransition)
-        } else {
-            animate(scope.current, regularState, regularTransition)
         }
     })
 
+    function handleClose() {
+        overlayAnimate(overlayScope.current,
+            {
+                y: -100,
+                opacity: 0
+            },
+            {
+                duration: 0.75,
+                type: 'spring'
+            }
+        ).then(()=> setOpenTab(!useOpenTab))
+
+    }
+
     useEffect(() => {
-        if (useTab) {
+        if (useOpenTab) {
             overlayAnimate(overlayScope.current,
                 {
                     y: 0,
@@ -79,7 +89,19 @@ export default function Header({currentPath}) {
                 }
             )
         }
-    }, [useTab])
+        // if (useCloseTab) {
+        //     overlayAnimate(overlayScope.current,
+        //         {
+        //             y: -800,
+        //             opacity: 0
+        //         },
+        //         {
+        //             duration: 0.5,
+        //             type: 'spring'
+        //         }
+        //     )
+        // }
+    }, [useOpenTab])
 
     return (
         <div 
@@ -97,7 +119,7 @@ export default function Header({currentPath}) {
             {
                 width > 768 && (
                     <>
-                    <div className="flex flex-row items-center gap-2 font-extrabold">
+                    <div className="flex flex-row items-center gap-2">
                         {
                             tabs.map((item, index) => {
                                 if (currentPath == item.route) {
@@ -147,9 +169,12 @@ export default function Header({currentPath}) {
             {
                 width < 768 && (
                     <div>
-                        <button onClick={() => openTab(!useTab)}>MENU</button>
+                        <button onClick={() => {
+                            setOpenTab(!useOpenTab)
+                            // setCloseTab(false)
+                            }}>MENU</button>
                         {
-                            useTab && (
+                            useOpenTab && (
                                 <div>
                                     <div
                                         className="fixed top-0 left-0 h-[50vh] w-full z-[95] items-end -mt-24"
@@ -166,7 +191,11 @@ export default function Header({currentPath}) {
                                             <div className="flex flex-col p-10 gap-10 w-full items-center">
                                                 <div className="flex flex-row gap-4 w-full justify-between">
                                                     <img src={companylogo.src} alt="company-logo" className="w-[50px]" />
-                                                    <button className="text-2xl" onClick={() => openTab(!useTab)}>✖</button>
+                                                    <button className="text-2xl" onClick={() =>{
+                                                        
+                                                        // setCloseTab(true)
+                                                        handleClose()
+                                                        }}>✖</button>
                                                 </div>
                                                 <div className="flex flex-col gap-2 w-full sm:w-1/3 md:w-1/2 place-self-end pb-2">
                                                     {

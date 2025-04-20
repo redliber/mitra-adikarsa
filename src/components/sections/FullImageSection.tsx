@@ -6,7 +6,7 @@ export default function FullImageSection({children, id, additionalClasses} : {
     additionalClasses?: string
 }) {
     return (
-        <section id={id} className={additionalClasses + 'w-full'}>
+        <section id={id} className={additionalClasses + ' w-full overflow-hidden'}>
             {children}
         </section>
     )
