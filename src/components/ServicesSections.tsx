@@ -7,13 +7,36 @@ export default function ServicesSections({
     children?: React.ReactNode
 }) {
     const servicesDetails = [
-        {heading: 'Kontraktor Umum', body: 'Donec ultrices eu felis ac vehicula. Duis tempor ex tortor, quis consequat turpis tempus vel. Nullam ut pretium diam. Nam cursus orci et massa aliquam, consequat posuere nisi volutpat.'},
-        {heading: 'Konsultan Perancanaan', body: 'Donec et lectus quis lacus gravida fermentum. Cras mattis, turpis laoreet tristique auctor, mi turpis porttitor sem, quis pretium turpis leo vitae lectus.'},
-        {heading: 'Penyediaan Tenaga Kelistrikan', body: 'Cras sollicitudin vitae neque sit amet rutrum. Etiam lacinia elit dolor. Nulla scelerisque justo rutrum, faucibus dui eget, euismod metus.'},
-        {heading: 'Pemeliharaan Instalasi Tenaga Listrik', body: 'Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer eget lectus vitae nulla hendrerit rhoncus.'},
-        {heading: 'Penyediaan Energi Baru dan Terbarukan', body: 'Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam luctus feugiat semper.'},
-        {heading: 'Assessment dan Pengujian Instalasi Listrik', body: 'Morbi vitae magna blandit, lobortis nulla sed, suscipit est. Phasellus quam orci, lobortis sagittis nisi a, malesuada interdum lacus.'},
-        {heading: 'Infrastruktur Telekomunikasi Fiber Optik', body: 'Pellentesque sit amet diam ultrices, luctus lorem quis, aliquam justo. Phasellus finibus est vitae blandit ornare.'},
+        {
+            heading: 'Kontraktor Umum', 
+            body: 'Kami ahli dalam perancangan, pembangunan, dan implementasi jaringan. Listrik MV hingga LV, mencakup SKTM, SKTR, SUTM, SUTR, Gardu. Distribusi, Panel Industri, Genset, dan Infrastruktur Lainnya. Kami bekerja. Dengan penyedia material berkualitas, Baik Nasional maupun Internasional, sesuai standar industri.'},
+        {
+            heading: 'Konsultan Perancanaan', 
+            body: 'Kami menyediakan SDM berkualitas untuk perencanaan Infrastruktur. Kelistrikan di Sektor Bisnis, Industri, dan Sistem Kompleks lainnya. Tim Profesional kami siap memberikan layanan terbaik sesuai kebutuhan.'},
+        {
+            heading: 'Penyediaan Tenaga Kelistrikan',
+            body: 'Kami menyediakan tenaga kerja terampil dan bersertifikat, termasuk teknisi listrik dan operator, untuk mendukung operasional serta pemeliharaan sistem kelistrikan di berbagai sektor bisnis dan industri. SDM kami memiliki kompetensi sesuai kebutuhan era Industri 4.0.'
+        },
+        {
+            heading: 'Pemeliharaan Instalasi Tenaga Listrik',
+            body: 'Kami menyediakan layanan pemeliharaan rutin, preventif, dan prediktif untuk komponen kelistrikan seperti trafo, panel listrik, dan cubicle. Dengan inspeksi berkala dan teknologi canggih seperti thermal imaging dan ultrasonic vibration analysis, kami memastikan sistem beroperasi optimal, mencegah downtime, dan menghindari kecelakaan.'
+        },
+        {
+            heading: 'Sertifikat Kelistrikan SLO',
+            body: 'Kami membantu pengurusan Sertifikat Laik Operasi (SLO) untuk memastikan instalasi listrik aman, legal, dan sesuai standar. Layanan kami mencakup inspeksi, rekomendasi perbaikan, dan pendampingan hingga sertifikat terbit.'
+        },
+        {
+            heading: 'Infrastruktur Kendaraan Listrik',
+            body: 'Kami menyediakan solusi infrastruktur charging station untuk kendaraan listrik, mencakup perancangan, instalasi, dan pemeliharaan. Dengan peralatan berkualitas dan standar keamanan tinggi, kami mendukung transisi ke energi ramah lingkungan.'
+        },
+        {
+            heading: 'Fiber Optik',
+            body: 'Perencanaan dan desain jaringan, pembangunan dan instalasi fiber optik, pemeliharaan dan troubleshooting, serta upgrade dan migrasi jaringan.'
+        },
+        {
+            heading: 'Sipil',
+            body: 'Konstruksi sipil, pembangunan jalan, jembatan, gedung, dan infrastruktur lainnya.'
+        }
     ]
     return (
         <>

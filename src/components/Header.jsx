@@ -24,11 +24,11 @@ export default function Header({currentPath}) {
             route: '/mitra-adikarsa'
         },
         {
-            label: 'OUR SERVICES',
+            label: 'SERVICES',
             route: '/mitra-adikarsa/services'
         },
         {
-            label: 'ABOUT US',
+            label: 'ABOUT',
             route: '/mitra-adikarsa/about'
         },
     ]
@@ -106,9 +106,9 @@ export default function Header({currentPath}) {
     return (
         <div 
             ref={scope}
-            className="w-full min-h-[25px] flex flex-row justify-between py-10 md:py-10 px-10 md:px-20 text-sm border-b-[0.1px] border-zinc-50/35 sticky top-0 z-[99] dark-green-color grainy-bg"
+            className="w-full h-[30px] flex flex-row justify-between py-10 md:py-10 px-10 md:px-20 text-sm border-b-[0.1px] border-zinc-50/35 sticky top-0 z-[99] dark-green-color grainy-bg"
             style={regularState}
-
+            
         >
             <div className="flex flex-row items-center gap-2">
                 <img src={companylogo.src} alt="company-logo" className="w-[50px]" />
@@ -119,7 +119,7 @@ export default function Header({currentPath}) {
             {
                 width > 768 && (
                     <>
-                    <div className="flex flex-row items-center gap-2">
+                    <div className="flex flex-row items-center gap-2 ">
                         {
                             tabs.map((item, index) => {
                                 if (currentPath == item.route) {
@@ -168,7 +168,7 @@ export default function Header({currentPath}) {
             }
             {
                 width < 768 && (
-                    <div>
+                    <div className="">
                         <button onClick={() => {
                             setOpenTab(!useOpenTab)
                             // setCloseTab(false)

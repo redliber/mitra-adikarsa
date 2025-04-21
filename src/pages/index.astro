@@ -22,6 +22,9 @@ import field from "../assets/media/stock/field.jpg"
 import contact1 from "../assets/media/stock/contact1.jpg"
 import bulldozer from "../assets/media/stock/bulldozer.jpg"
 
+import companylogolarge from "../assets/media/company-logo-large.svg"
+
+
 
 const electricLinesPath = `url("../assets/media/stock/electric-lines.jpg")`
 const words = 'Solusi infrastruktur kelistrikan yang andal dan inovatif guna mendukung kemajuan Indonesia. Dengan mengutamakan keselamatan, efisiensi, dan standar kualitas tertinggi, kami memastikan pembangunan infrastruktur kelistrikan yang berkelanjutan dan berdaya saing.'
@@ -60,19 +63,15 @@ const words = 'Solusi infrastruktur kelistrikan yang andal dan inovatif guna men
 				</div>
 			</div>
 		</GeneralSection>
-		<FullImageSection id="index-hero-picture" additionalClasses={'max-h-[150vh] md:max-h-[75vh] '}>
-			<img src={electricLines.src} alt="electric lines" height={200} class="origin-bottom -translate-y-0.5 md:-translate-y-2/5"/>
+		<FullImageSection id="index-hero-picture" additionalClasses={''}>
+			<img src={electricLines.src} alt="electric lines" height={1000} class=""/>
 		</FullImageSection>
-		<!-- <section class='z-[98] h-[100vh] md:h-[100vh] -mt-[0vh] md:-mt-[55vh]'>
-			<ThreeScene client:load />
-		</section> -->
 		<div class="w-full">
-			<GeneralSection id="index-hero-caption" additionalClasses='grainy-bg dark-green-color relative md:sticky md:top-0'>
+			<GeneralSection id="index-hero-caption" additionalClasses='bg-dark-green relative md:sticky md:top-[30px]'>
 				<Caption animateText={false} words={words}/>
 			</GeneralSection>
-			<FullImageSection id="index-hero-picture" 									additionalClasses='max-h-[75vh]'
-			>
-				<img src={field.src} alt="field" height={'1000vh'} class=""/>
+			<FullImageSection id="index-hero-picture" additionalClasses='max-h-[75vh]'>
+				<img src={field.src} alt="field"  class=""/>
 			</FullImageSection>
 		</div>
 		<GeneralSection 
@@ -120,7 +119,7 @@ const words = 'Solusi infrastruktur kelistrikan yang andal dan inovatif guna men
 				words={'Strength 3 Especially This with to our Bestest Capabilities'}
 			/>
 		</GeneralSection>
-		<GeneralSection id="index-services">
+		<GeneralSection id="index-services" additionalClasses=''>
 			<Caption
 				client:load
 				duration={1}
@@ -168,3 +167,9 @@ const words = 'Solusi infrastruktur kelistrikan yang andal dan inovatif guna men
     	</GeneralSection>
 	</div>
 </Layout>
+
+<style>
+	.font-basic {
+		font-family: 'Basic Sans', sans-serif;
+	},
+</style>

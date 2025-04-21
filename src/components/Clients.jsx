@@ -7,8 +7,9 @@ import clientPatriot from '../assets/media/clients/client-patriot.png'
 import clientSwatantra from '../assets/media/clients/client-swatantra.png'
 import clientFiberstar from '../assets/media/clients/client-fiberstar.png'
 
-import Marquee from "react-fast-marquee";
+// import Marquee from "react-fast-marquee";
 import { constColors } from '../lib/const'
+import './clients.css'
 
 
 export default function Clients() {
@@ -20,15 +21,29 @@ export default function Clients() {
         clientPatriot.src,
         clientSwatantra.src,
         clientFiberstar.src,
+        clientPLN.src,
+        clientPLNPLUS.src,
+        clientBit.src,
+        clientGBK.src,
+        clientPatriot.src,
+        clientSwatantra.src,
+        clientFiberstar.src,
+        clientPLN.src,
+        clientPLNPLUS.src,
+        clientBit.src,
+        clientGBK.src,
+        clientPatriot.src,
+        clientSwatantra.src,
+        clientFiberstar.src,
     ]
     return (
-        <div className='flex flex-col align-middle items-center justify-center' 
+        <div className='flex flex-col align-middle items-center justify-center enable-animation' 
         // style={{backgroundColor: constColors.white}}
         >
-            <div className='w-full flex flex-row'>
+            <div className='w-full marquee__content'>
                 {   
                     clientsPath.map((item, idx) => (
-                        <img src={item} alt="company-logo" className="m-2 w-[10vw]" />
+                        <img key={idx} src={item} alt="company-logo" className="m-2 w-[10vw] marquee__item" />
                     ))
                 }
             </div>

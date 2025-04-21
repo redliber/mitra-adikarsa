@@ -20,10 +20,10 @@ currentPath = currentPath[-1] == "/" ? currentPath.slice(0,-1) : currentPath
 		<title>Mitra Adikarsa</title>
 		<ClientRouter/>
 	</head>
-	<body class="dark-green-color font-sans">
+	<body class="bg-dark-green font-basic">
 		<div 
 			transition:animate="slide" 
-			class="w-full  text-[#FEFBDF]"
+			class="w-full text-[#FEFBDF] "
 		>
 			<Header client:load transition:persist currentPath={currentPath} />
 			<slot />

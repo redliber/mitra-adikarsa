@@ -16,7 +16,7 @@ export default function FrontPageCards() {
             {
                 servicesData.map((item, idx) => {
                     return (
-                        <Card heading={item.heading} body={item.body}/>
+                        <Card heading={item.heading} body={item.body} key={idx}/>
                     )
                 })
             }

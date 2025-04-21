@@ -8,6 +8,21 @@ import ButtonAnimated from "./animated/ButtonAnimated"
 
 
 export default function Footer({}) {
+    const tabs = [
+        {
+            label: 'HOME',
+            route: '/mitra-adikarsa'
+        },
+        {
+            label: 'SERVICES',
+            route: '/mitra-adikarsa/services'
+        },
+        {
+            label: 'ABOUT',
+            route: '/mitra-adikarsa/about'
+        },
+    ]
+
     const [scope, animate] = useAnimate()
     const [ref, entry] = useIntersectionObserver({
         threshold: 0.1,
@@ -36,7 +51,7 @@ export default function Footer({}) {
 
     return (
         <div ref={ref}>
-            <div ref={scope} className="w-full flex flex-col  
+            <div ref={scope} className="w-full flex flex-col  text-sm 
             py-20 md:py-20 px-6 md:px-20  
             border-t-[0.1px] border-zinc-50/35 grainy-bg glassmorphism inset-shadow-sm" style={{
                 background: constColors.darkGreen2,
@@ -58,17 +73,18 @@ export default function Footer({}) {
                     <div className="flex flex-col md:flex-row gap-24">
                         <div className="flex flex-col">
                             <p className="mb-10 font-black">PAGES</p>
-                            <p>SERVICES</p>
-                            <p>ABOUT US</p>
-                            <p>CONTACTS</p>
-                            <p>HOME</p>
+                            {
+                                tabs.map((item, index) => (
+                                    <a href={item.route} key={index} className="font-thin">{item.label}</a>
+                                ))
+                            }
                         </div>
                         <div className="flex flex-col">
                             <p className="mb-10 font-black">LOCATIONS</p>
-                            <p className="font-bold">KALIDERES</p>
-                            <p className="font-extralight leading-tight text-zinc-50 pb-4">Jl. Peta Barat Citra Business Park <br></br>Blok F No.33 Kalideres<br></br>Jakarta Barat, DKI Jakarta 11840</p>
-                            <p className="font-bold">BEKASI</p>
-                            <p className="font-extralight leading-tight text-zinc-50">Workshop<br></br>Jl. Bambu Kuning Raya No.23<br></br>Bekasi Timur</p>
+                            <p className="text-lg">KALIDERES</p>
+                            <p className="font-extralight leading-tight text-zinc-300 pb-4">Jl. Peta Barat Citra Business Park <br></br>Blok F No.33 Kalideres<br></br>Jakarta Barat, DKI Jakarta 11840</p>
+                            <p className="text-lg">BEKASI</p>
+                            <p className="font-extralight leading-tight text-zinc-300">Workshop<br></br>Jl. Bambu Kuning Raya No.23<br></br>Bekasi Timur</p>
                         </div>
                         <div className="flex flex-col">
                             <p className="mb-10 font-black">CONTACT</p>

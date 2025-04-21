@@ -1,19 +1,15 @@
 @import "tailwindcss";
 
-/* @theme {
-    --font-sans: 'Myriad', 'sans-serif';
-  } */
+@theme {
+    --font-basic: 'Basic Sans', monospace;
+    --font-myriad: 'Myriad', monospace;
+    --color-yellow-green: #B8D445;
+    --color-dark-green: #07201E;
+  }
 
 html {
   @apply text-zinc-50;
-  /* @apply tracking-tight; */
   scroll-behavior: smooth;
-  font-family: 'Myriad', 'sans-serif'
-}
-
-.dark-green-color {
-  background-color: rgba(7, 32, 30, 1)
-  /* background-color: linear-gradient(90deg, rgba(14,75,58,1) 0%, rgba(5,40,37,1) 100%); */
 }
 
 .glassmorphism {
@@ -23,9 +19,18 @@ html {
 }
 
 @font-face {
-  font-family: 'Myriad';
-  src: url('../../public/fonts/MyriadPro-Regular.otf') format('otf');
+  font-family: "Myriad";
+  src: url("../../public/fonts/MyriadPro-Regular.otf");
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
 }
+
+@font-face {
+  font-family: "Basic Sans";
+  src: url("../../public/fonts/BasicSans.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+

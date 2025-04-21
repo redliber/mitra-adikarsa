@@ -33,7 +33,7 @@ export default function Hero  ({
     return (
         <div ref={scope} style={{transform: 'translateY(200px)'}}>
             <div ref={ref}>
-                <p className={className + ' font-extrabold text-[12vw] leading-[11vw] md:text-5xl md:leading-[2.75rem] lg:text-6xl lg:leading-[4rem] xl:text-8xl xl:leading-[6rem] md:max-w-2xl lg:max-w-4xl '}>
+                <p className={className + ' font-extrabold text-[12vw] leading-[11vw] md:text-5xl md:leading-[2.75rem] lg:text-6xl lg:leading-[4rem] xl:text-8xl xl:leading-[6rem] md:max-w-2xl lg:max-w-4xl text-yellow-green'}>
                     {
                         wordsArray.map((item, idx) => {
                             return (
