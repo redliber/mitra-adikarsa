@@ -16,6 +16,8 @@ import Clients from '../components/Clients'
 import FrontPageCards from '../components/cards/FrontPageCards'
 import ThreeScene from "../components/ThreeScene"
 
+import {ArrowRightToLine} from 'lucide-react'
+
 // Images
 import electricLines from "../assets/media/stock/electric-lines.jpg"
 import field from "../assets/media/stock/field.jpg"
@@ -23,6 +25,7 @@ import contact1 from "../assets/media/stock/contact1.jpg"
 import bulldozer from "../assets/media/stock/bulldozer.jpg"
 
 import companylogolarge from "../assets/media/company-logo-large.svg"
+import MailingListSection from '../components/sections/MailingListSection';
 
 
 
@@ -33,136 +36,131 @@ const words = 'Solusi infrastruktur kelistrikan yang andal dan inovatif guna men
 
 <Layout>
 	<div id="index-main-container" class="w-full flex flex-col">
-		<GeneralSection id="index-hero-top" >
-			<div class="flex flex-col md:flex-row justify-between gap-10">
-				<Hero 
-					client:load 
-					duration={1.5}
-					stagger={0.05}
-					filter={true} 
-					words={'ONE-STOP ELECTRICAL SOLUTION'}/>
-				<div class="text-xl flex flex-col items-start md:items-end gap-10">
-					<SubCaption client:load 
-						duration={0.5}
-						stagger={0.02}
-						filter={true}
-						className={'text-left md:text-right'}
-						words={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque volutpat faucibus varius. Integer tristique posuere est, vel egestas dui mollis sed. Phasellus euismod sed neque sed iaculis.'}/>
-					<SectionFadeIn className={''} client:load>
-						<ButtonAnimated 
-							client:load 
-							label={'WHAT WE OFFER'}
-							href={'/mitra-adikarsa/services'}
-							className={"font-black z-[92] w-max-2xl"}
-							initColor={constColors.darkGreen}
-							initBgColor={constColors.white} 
-							hoverBgColor={constColors.yellowGreen2}
-							hoverColor={constColors.darkGreen}
-						/>
-					</SectionFadeIn>
-				</div>
-			</div>
-		</GeneralSection>
-		<FullImageSection id="index-hero-picture" additionalClasses={''}>
-			<img src={electricLines.src} alt="electric lines" height={1000} class=""/>
-		</FullImageSection>
+	   <div>
+    		<GeneralSection id="index-hero-top" additionalClasses='sticky top-0 bg-dark-green'>
+    			<div class="flex flex-col md:flex-row justify-between gap-10 sticky top-0 bg-dark-green">
+    			    <div class="max-w-lg">
+        				<Hero
+       					client:load
+       					duration={1.5}
+       					stagger={0.05}
+       					filter={true}
+       					className='text-yellow-green'
+       					words={'One-Stop \n Electrical \n Solution'}
+        				/>
+    				</div>
+    				<div class="text-xl flex flex-col self-stretch justify-between pb-10 items-end md:items-end gap-10">
+    					<SubCaption client:load
+    						duration={0.5}
+    						stagger={0.02}
+    						filter={true}
+    						className={'text-left md:text-right max-w-lg'}
+    						words={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque volutpat faucibus varius. Integer tristique posuere est, vel egestas dui mollis sed. Phasellus euismod sed neque sed iaculis.'}/>
+    					<SectionFadeIn className={''} client:load>
+    						<ButtonAnimated
+    							client:load
+    							label={'WHAT WE OFFER'}
+    							href={'/mitra-adikarsa/services'}
+    							className={"font-black"}
+    							initColor={constColors.darkGreen}
+    							initBgColor={constColors.white}
+    							hoverBgColor={constColors.yellowGreen2}
+    							hoverColor={constColors.darkGreen}
+    						>
+    						  What We Offer
+    						</ButtonAnimated>
+    					</SectionFadeIn>
+    				</div>
+    			</div>
+    		</GeneralSection>
+    		<FullImageSection id="index-hero-picture" additionalClasses={''}>
+    			<img src={electricLines.src} alt="electric lines" height={1000} class=""/>
+    		</FullImageSection>
+		</div>
 		<div class="w-full">
-			<GeneralSection id="index-hero-caption" additionalClasses='bg-dark-green relative md:sticky md:top-[30px]'>
-				<Caption animateText={false} words={words}/>
+			<GeneralSection id="index-hero-caption" additionalClasses='bg-yellow-green relative md:sticky md:top-[60px] px-12'>
+				<Caption className='text-dark-green' animateText={false} words={words}/>
 			</GeneralSection>
 			<FullImageSection id="index-hero-picture" additionalClasses='max-h-[75vh]'>
 				<img src={field.src} alt="field"  class=""/>
 			</FullImageSection>
 		</div>
-		<GeneralSection 
+		<GeneralSection
 			id="index-clients"
-			additionalClasses='grainy-bg w-full flex flex-col items-center gap-4 '
-			style={{
-				backgroundColor: constColors.darkGreen
-			}}
+			additionalClasses='bg-yellow-green w-full flex flex-col overflow-hidden'
 		>
-			<Caption
+			<Hero
 				client:load
-				duration={1}
-				stagger={0.025}
+				duration={1.5}
+				stagger={0.05}
 				filter={true}
-				words={'Trusted by Our Clients'}
-				className={'text-center mb-12'}
-			/>
-			<SectionFadeIn className='' client:load>
+				className='text-dark-green my-10'
+				words={'Trusted by Our Clients'}/>
+ 			<SectionFadeIn className='' client:load>
 				<Clients/>
-			</SectionFadeIn>
+ 			</SectionFadeIn>
 		</GeneralSection>
 		<GeneralSection id="index-features" additionalClasses={'flex flex-col'} innerClasses='justify-evenly w-full h-full'>
-			<Hero
-				client:load 
-				duration={0.5}
-				stagger={0.1}
-				filter={true}  
-				className={'py-24  '}
-				words={'Strength 1 We do This Thing Really Well with our Services'}
-			/>
-			<Hero
-				client:load 
-				duration={0.5}
-				stagger={0.1}
-				filter={true}  
-				className={'py-24 justify-self-end text-right'}
-				words={'Strength 2 and This Too Amazingly with out Powers'}
-			/>
-			<Hero
-				client:load 
-				duration={0.5}
-				stagger={0.1}
-				filter={true}  
-				className={'py-24  '}
-				words={'Strength 3 Especially This with to our Bestest Capabilities'}
-			/>
+    		<div class="my-24">
+    			<Hero
+    				client:load
+    				duration={0.5}
+    				stagger={0.1}
+    				filter={true}
+    				className={'text-yellow-green py-4  '}
+    				words={'Strength 1 We do This Thing'}
+    			/>
+    			<p>This is details of the first strength to sell you more on it.</p>
+    		</div>
+            <div class="my-24">
+    			<Hero
+    				client:load
+    				duration={0.5}
+    				stagger={0.1}
+    				filter={true}
+    				className={'text-yellow-green py-4 justify-self-end text-right'}
+    				words={'Strength 2 and This Second One Too '}
+    			/>
+    			<p class="text-right">And another detail about the second strength.</p>
+            </div>
 		</GeneralSection>
+		<FullImageSection id="index-hero-picture" additionalClasses={'h-[75vh]'}>
+			<img src={bulldozer.src} alt="electric lines" height={1000} class=""/>
+		</FullImageSection>
 		<GeneralSection id="index-services" additionalClasses=''>
-			<Caption
+			<FrontPageCards client:load/>
+			<ButtonAnimated
 				client:load
-				duration={1}
-				stagger={0.025}
-				filter={true}
-				words={'Our Services'}
-				className={'text-center pb-12'}
-			/>
-			<div class="w-full">
-				<FrontPageCards client:load/>
-			</div>
+				label={"WHAT WE'RE ALL ABOUT"}
+				href={'/mitra-adikarsa/services'}
+				className={"font-black w-max-xs w-xs"}
+				initColor={constColors.darkGreen}
+				initBgColor={constColors.white}
+				hoverBgColor={constColors.yellowGreen2}
+				hoverColor={constColors.darkGreen}
+			>See All Our Services</ButtonAnimated>
 		</GeneralSection>
-		<GeneralSection id='index-about'>
-            <div class=" flex flex-col gap-10 max-w-4xl">
+		<MailingListSection client:load id='index-mailing-list'/>
+		<GeneralSection id='index-about' additionalClasses='bg-yellow-green'>
+            <div class=" flex flex-col gap-10 justify-center align-middle content-center items-center">
                 <Hero
-					client:load 
+					client:load
                     duration={0.5}
                     stagger={0.1}
-                    filter={true}  
+                    filter={true}
+                    className='text-dark-green text-center'
 					words={'Learn More About Us'}
 					/>
-				<ButtonAnimated 
-					client:load 
+				<ButtonAnimated
+					client:load
 					label={"WHAT WE'RE ALL ABOUT"}
 					href={'/mitra-adikarsa/about'}
-					className={"font-black w-max-xs w-xs my-10"}
+					className={"font-black w-max-xs w-xs my-10 text-center"}
 					initColor={constColors.darkGreen}
-					initBgColor={constColors.white} 
+					initBgColor={constColors.white}
 					hoverBgColor={constColors.yellowGreen2}
 					hoverColor={constColors.darkGreen}
-				/>
-            </div>
-            <div class="flex flex-col sm:flex-row">
-                <div class="max-h-full sm:max-h-[25vw] max-w-full sm:max-w-[50vw] overflow-hidden">
-                    <div>
-                        <Image src={bulldozer} alt="bulldozer"/>
-                    </div>
-                </div>
-                <div class="max-h-full sm:max-h-[25vw] max-w-full sm:max-w-[50vw] overflow-hidden">
-                    <div>
-                        <Image src={contact1} alt="contact1"/>
-                    </div>
-                </div>
+				>What We're All About</ButtonAnimated>
             </div>
     	</GeneralSection>
 	</div>

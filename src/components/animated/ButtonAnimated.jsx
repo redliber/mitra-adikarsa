@@ -3,34 +3,35 @@ import { color, hover, useAnimate } from "framer-motion"
 import { useEffect, useState } from "react"
 
 export default function ButtonAnimated({
-    label, 
-    className, 
+    label,
+    className,
     href,
     initColor,
     initBgColor,
     hoverColor,
-    hoverBgColor
+    hoverBgColor,
+    children
 }) {
     const [scope, animate] = useAnimate()
     const [useHovered, setHovered] = useState(false)
 
     // Animation States and Transitions
 
-    const hoveredAnim = { scale: 1.125, rotation: 25, 
-        background: hoverBgColor, 
+    const hoveredAnim = { scale: 1.125, rotation: 25,
+        background: hoverBgColor,
         color: hoverColor, backdropFilter: 'blur(10px)' }
     const hoveredTransition = { duration: 0.5, type: "spring" }
 
-    const regularStyle = { scale: 1, rotate: 0, 
-        background: initBgColor, 
+    const regularStyle = { scale: 1, rotate: 0,
+        background: initBgColor,
         color: initColor, backdropFilter: ''}
     const regularTransition = { duration: 1, type: "spring", }
 
     const mouseDownAnim = { scale: 1, }
     const mouseDownTransition = { duration : 0.75, type: "spring"}
 
-    
-    
+
+
     // Callback Functions for DOM Events
 
     function hoverOver () {
@@ -48,7 +49,7 @@ export default function ButtonAnimated({
     useEffect(() => {
         useHovered ? hoverOver() : hoverOverEnd()
     }, [useHovered, hoveredAnim, hoveredTransition])
-    
+
     return (
         <a
             ref={scope}
@@ -56,10 +57,10 @@ export default function ButtonAnimated({
             onMouseOut={() => setHovered(false)}
             onMouseDown={() => mouseDown()}
             // onMouseUp={}
-            className={className + ' rounded-xs px-4 py-2'}
+            className={className + ' rounded-xs px-6 py-4'}
             href={href}
         >
-            {label}
+            {children}
         </a>
     )
 }

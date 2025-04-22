@@ -1,5 +1,6 @@
 import React from "react"
 import ServiceSection from "./sections/ServiceSection"
+import MailingListSection from "./sections/MailingListSection"
 
 export default function ServicesSections({
     children
@@ -8,10 +9,10 @@ export default function ServicesSections({
 }) {
     const servicesDetails = [
         {
-            heading: 'Kontraktor Umum', 
+            heading: 'Kontraktor Umum',
             body: 'Kami ahli dalam perancangan, pembangunan, dan implementasi jaringan. Listrik MV hingga LV, mencakup SKTM, SKTR, SUTM, SUTR, Gardu. Distribusi, Panel Industri, Genset, dan Infrastruktur Lainnya. Kami bekerja. Dengan penyedia material berkualitas, Baik Nasional maupun Internasional, sesuai standar industri.'},
         {
-            heading: 'Konsultan Perancanaan', 
+            heading: 'Konsultan Perancanaan',
             body: 'Kami menyediakan SDM berkualitas untuk perencanaan Infrastruktur. Kelistrikan di Sektor Bisnis, Industri, dan Sistem Kompleks lainnya. Tim Profesional kami siap memberikan layanan terbaik sesuai kebutuhan.'},
         {
             heading: 'Penyediaan Tenaga Kelistrikan',
@@ -47,6 +48,7 @@ export default function ServicesSections({
                     )
                 })
             }
+            <MailingListSection id="services-mailing-section"/>
         </>
     )
 }

@@ -50,13 +50,13 @@ export default function Footer({}) {
     })
 
     return (
-        <div ref={ref}>
-            <div ref={scope} className="w-full flex flex-col  text-sm 
-            py-20 md:py-20 px-6 md:px-20  
+        <div ref={ref} className="z-[99]">
+            <div ref={scope} className="w-full flex flex-col  text-sm
+            py-20 md:py-20 px-6 md:px-20
             border-t-[0.1px] border-zinc-50/35 grainy-bg glassmorphism inset-shadow-sm" style={{
                 background: constColors.darkGreen2,
                 // transform: 'translateY(300px)'
-                opacity:0   
+                opacity:0
             }}>
                 <div className="flex flex-col md:flex-col lg:flex-row w-full justify-between">
                     <div className="flex flex-col align-start gap-6 mb-24">
@@ -81,9 +81,9 @@ export default function Footer({}) {
                         </div>
                         <div className="flex flex-col">
                             <p className="mb-10 font-black">LOCATIONS</p>
-                            <p className="text-lg">KALIDERES</p>
+                            <p className="">KALIDERES</p>
                             <p className="font-extralight leading-tight text-zinc-300 pb-4">Jl. Peta Barat Citra Business Park <br></br>Blok F No.33 Kalideres<br></br>Jakarta Barat, DKI Jakarta 11840</p>
-                            <p className="text-lg">BEKASI</p>
+                            <p className="">BEKASI</p>
                             <p className="font-extralight leading-tight text-zinc-300">Workshop<br></br>Jl. Bambu Kuning Raya No.23<br></br>Bekasi Timur</p>
                         </div>
                         <div className="flex flex-col">
@@ -93,19 +93,21 @@ export default function Footer({}) {
                             <p>mitradikarsa@gmail.com</p>
                             <br></br>
                             <ButtonAnimated
-                                client:load 
+                                client:load
                                 label={'↗ CONTACT US'}
                                 href={'/mitra-adikarsa/contact'}
                                 className={"font-black"}
                                 initColor={constColors.darkGreen}
-                                initBgColor={constColors.white} 
+                                initBgColor={constColors.white}
                                 hoverBgColor={constColors.yellowGreen2}
                                 hoverColor={constColors.darkGreen}
-                            />
+                            >
+                              ↗ CONTACT US
+                            </ButtonAnimated>
                         </div>
                     </div>
                 </div>
-                <div className="border-t-[0.1px] border-zinc-50/35 py-6 mt-36 text-xs">
+                <div className="py-6 mt-36 text-xs">
                     <p>MADE BY BENJAMIN BERNARD CHENIER</p>
                 </div>
             </div>

@@ -11,7 +11,7 @@ export default function SectionFadeIn  ({
 })  {
     const [scope, animate] = useAnimate()
     const [ref, entry] = useIntersectionObserver({
-        threshold: 0.1,
+        threshold: 0.05,
         // root: null,
         // rootMargin: "0px",
     });
@@ -20,8 +20,8 @@ export default function SectionFadeIn  ({
         if (entry?.isIntersecting) {
             animate(scope.current, {
                 opacity: 1,
-                filter: 'blur(0px)'
-            }, {duration: 1.5, type: "ease"})
+                // filter: 'blur(0px)'
+            }, {duration: 0.5, type: "ease"})
         }
     })
 
@@ -31,7 +31,10 @@ export default function SectionFadeIn  ({
             className={className}
         >
             <div ref={scope}
-                style={{opacity:0, filter: 'blur(50px)'}}
+                style={{
+                  opacity:0,
+                  // filter: 'blur(50px)'
+                  }}
             >
                 {children}
             </div>

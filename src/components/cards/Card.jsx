@@ -36,17 +36,17 @@ export default function Card({heading, body}) {
         <div
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            ref={scope} 
+            ref={scope}
             className="
-                min-h-80 
+                min-h-80
                 w-full md:w-1/2 lg:w-1/3
                 border-[0.1px]
-                border-zinc-50/35 
-                py-16 px-10 md:px-10 md:py-10 rounded-xs grainy-bg shadow-2xl" 
+                border-zinc-50/35
+                py-16 px-10 md:px-10 md:py-10 rounded-xs grainy-bg shadow-2xl"
             // style={{ backgroundColor: 'rgba(4, 17, 16, 1)'}}
         >
             <div ref={textScope} className='flex flex-col h-full place-content-between'>
-                <p className="font-black text-2xl self-start" >{heading}</p>
+                <p className="font-black text-4xl self-start">{heading}</p>
                 <div className='max-w-1/6 my-10'>
                     <div className='w-full border-zinc-50/35 border-[1px]'></div>
                 </div>

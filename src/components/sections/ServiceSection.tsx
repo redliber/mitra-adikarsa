@@ -1,10 +1,22 @@
+'use client'
 import type React from "react"
 import GeneralSection from "./GeneralSection"
 import Hero from "../texts/Hero"
 import { constColors } from "../../lib/const"
 import '../../styles/global.css'
-import { useAnimate } from "framer-motion"
-import { useEffect, useState } from "react"
+import { useAnimate, useInView } from "framer-motion"
+import { useEffect, useLayoutEffect, useState } from "react"
+import SectionFadeIn from "../animated/SectionFadeIn"
+import { MoveDownRight } from 'lucide-react'
+import FullImageSection from "./FullImageSection"
+
+// Images
+// Images
+import electricLines from "../../assets/media/stock/electric-lines.jpg"
+import field from "../../assets/media/stock/field.jpg"
+import contact1 from "../../assets/media/stock/contact1.jpg"
+import bulldozer from "../../assets/media/stock/bulldozer.jpg"
+
 
 export default function ServiceSection({children, id, heading = 'Empty Service', body = 'Empty Service Body'}: {
     children?: React.ReactNode,
@@ -13,23 +25,148 @@ export default function ServiceSection({children, id, heading = 'Empty Service',
     body?: string
 }) {
     const [scope, animate] = useAnimate()
+    const [iconScope, iconAnimate] = useAnimate()
     const [bodyScope, bodyAnimate] = useAnimate()
+    const [bodyScopeHeight, setBodyScopeHeight] = useState('')
+
     const [useHover, setHover] = useState(false)
+    const [useModal, setModal] = useState(false)
+    const [useColor, setColor] = useState(constColors.darkGreen)
+    const [useInvertColor, setInvertColor] = useState(constColors.yellowGreen)
+
+    useEffect(() => {
+      if (useHover) {
+        setColor(constColors.yellowGreen)
+        setInvertColor(constColors.darkGreen)
+
+      } else {
+        setColor(constColors.darkGreen)
+        setInvertColor(constColors.yellowGreen)
+
+      }
+    })
+
+    useLayoutEffect(() => {
+      function updateHeight () {
+        if (bodyScope.current) {
+          setBodyScopeHeight(bodyScope.current.clientHeight);
+        }
+      }
+
+      window.addEventListener('resize', updateHeight);
+      return () => window.removeEventListener('resize', updateHeight);
+    }, []);
+
+    useEffect(() => {
+      if (useModal) {
+        bodyAnimate(bodyScope.current,
+          {
+            // y:0
+            height: bodyScopeHeight
+          }, {
+            duration: 0.5,
+            type: 'spring'
+          }
+        )
+
+        animate(scope.current, {
+          scale: 1.05,
+          x: '-50px',
+        }, {
+          duration: 0.5,
+          type: 'spring'
+        })
+
+        iconAnimate(iconScope.current, {
+          rotate:405,
+          scale:2
+        },{
+          duration: 0.5,
+          type: 'spring'
+        })
+
+      } else {
+        bodyAnimate(bodyScope.current,
+          {
+            // y:'-200px'
+            height: '0px'
+          }, {
+            duration: 0.5,
+            type: 'spring'
+          }
+        )
+
+        animate(scope.current, {
+          scale: 1,
+          x: '0px',
+        }, {
+          duration: 0.5,
+          type: 'spring'
+        })
+
+        iconAnimate(iconScope.current, {
+          rotate:0,
+          scale:1
+        },{
+          duration: 0.5,
+          type: 'spring'
+        })
+      }
+    })
+
     return (
-        <div
-            className="border-t-[1px] border-b-[1px] border-zinc-50/35" 
-            >
-                <div 
-                    className="py-24 md:py-20 px-6 md:px-20 lg:px-24 2xl:px-32">
-                    <p className={' text-[12vw] leading-[11vw] md:text-5xl md:leading-[2.75rem] lg:text-6xl lg:leading-[4rem] xl:text-8xl xl:leading-[6rem] '}>
-                        {heading}
-                    </p>
-                    <div ref={scope} style={{
-                        
-                    }}>
-                        <p className=" text-5xl">{body}</p>
-                    </div>
-                </div>
-        </div>
-    )    
+      <div
+        className=""
+        onMouseOver={() => setHover(true)}
+        onMouseOut={() => setHover(false)}
+        onClick={() => setModal(!useModal)}
+      >
+          <GeneralSection id={id} additionalClasses="border-b-[0.5px]
+            transition delay-50 duration-100
+            cursor-pointer
+            z-50
+            sticky top-[35px]
+            " style={{
+              backgroundColor: useColor,
+              color: useInvertColor
+            }}>
+            <div className="flex flex-row justify-between items-end">
+              <div className="" ref={iconScope}>
+                <SectionFadeIn className={''}>
+                  <MoveDownRight size={50} color={useInvertColor} />
+                </SectionFadeIn>
+              </div>
+              <div ref={scope}>
+                <SectionFadeIn
+                  className={''}>
+                  <Hero
+                    className=" text-right "
+                    words={heading}
+                    duration={0.3}
+                    stagger={0.05}
+                  />
+                </SectionFadeIn>
+              </div>
+            </div>
+          </GeneralSection>
+          <div
+            className=""
+            ref={bodyScope}
+            style={{
+            // transform: 'translateY(-200px)'
+            height: '0px'
+          }}>
+        		<FullImageSection id="index-hero-picture" additionalClasses={'h-[50vh]'}>
+         			<img src={field.src} alt="electric lines" className=""/>
+        		</FullImageSection>
+            <GeneralSection id={`body ${id}`} additionalClasses="
+              bg-dark-green
+            ">
+              <div >
+                <p className="text-3xl text-white">{ body }</p>
+              </div>
+            </GeneralSection>
+          </div>
+      </div>
+    )
 }

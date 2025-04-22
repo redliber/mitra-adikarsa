@@ -12,35 +12,44 @@ import FullImageSection from '../components/sections/FullImageSection';
 import ServicesSections from '../components/ServicesSections';
 import SubCaption from '../components/texts/SubCaption';
 import Caption from '../components/texts/Caption';
+import SectionFadeIn from '../components/animated/SectionFadeIn';
+import ButtonAnimated from '../components/animated/ButtonAnimated';
 ---
 
 <Layout>
     <div id='services-main-container' class="w-full flex flex-col">
-        <GeneralSection id='services-hero-top'>
-            <div class="flex flex-col md:flex-row justify-between gap-10">
-				<Hero 
-					client:load 
-					duration={1.5}
-					stagger={0.05}
-					filter={true} 
-					words={'OUR SERVICES'}/>
-				<div class="text-xl flex flex-col items-start md:items-end gap-10">
-					<SubCaption client:load 
-						duration={0.5}
-						stagger={0.02}
-						filter={true}
-						className={'text-left md:text-right'}
-						words={'Integer tristique posuere est, vel egestas dui mollis sed. Phasellus euismod sed neque sed iaculis.'}/>
-				</div>
-			</div>
-        </GeneralSection>
-        <FullImageSection id="index-hero-picture" additionalClasses={'max-h-[150vh] md:max-h-[75vh] '}>
-			<img src={bulldozer.src} alt="bulldozer" height={200} class=""/>
-		</FullImageSection>
-        <GeneralSection id="index-hero-caption" additionalClasses=''>
+    	   <div>
+        		<GeneralSection id="index-hero-top" additionalClasses='sticky top-[30px] bg-yellow-green'>
+        			<div class="flex flex-col md:flex-row justify-between gap-10 sticky top-0">
+        			    <div class="max-w-lg">
+            				<Hero
+           					client:load
+           					duration={1.5}
+           					stagger={0.05}
+           					filter={true}
+           					className='text-dark-green'
+           					words={'Our Services'}
+            				/>
+        				</div>
+        				<div class="text-xl flex flex-col self-stretch justify-between pb-10 items-end md:items-end gap-10">
+        					<SubCaption client:load
+        						duration={0.5}
+        						stagger={0.02}
+        						filter={true}
+        						className={'text-left md:text-right max-w-lg text-dark-green'}
+        						words={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque volutpat faucibus varius. Integer tristique posuere est, vel egestas dui mollis sed. Phasellus euismod sed neque sed iaculis.'}/>
+        				</div>
+        			</div>
+        		</GeneralSection>
+        		<FullImageSection id="index-hero-picture" additionalClasses={''}>
+        			<img src={bulldozer.src} alt="electric lines" height={1000} class=""/>
+        		</FullImageSection>
+		</div>
+        <GeneralSection id="index-hero-caption" additionalClasses='px-12 bg-yellow-green'>
             <Caption
                 duration={1}
                 stagger={0.05}
+                className='text-dark-green'
                 client:load words={
                 'Kami telah dipercaya PLN dan Swasta dalam membuat kerjasama dengan mereka. Kami selalu mendapatkan kembali kepercayaan dari klien kami, karena kami bekerja secara profesional dengan menyediakan tenaga ahli dalam bidangnya.'
             }/>

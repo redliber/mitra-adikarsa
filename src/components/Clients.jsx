@@ -13,7 +13,7 @@ import './clients.css'
 
 
 export default function Clients() {
-    const clientsPath = [ 
+    const clientsPath = [
         clientPLN.src,
         clientPLNPLUS.src,
         clientBit.src,
@@ -37,13 +37,13 @@ export default function Clients() {
         clientFiberstar.src,
     ]
     return (
-        <div className='flex flex-col align-middle items-center justify-center enable-animation' 
+        <div className='flex flex-col align-middle items-center justify-center enable-animation'
         // style={{backgroundColor: constColors.white}}
         >
             <div className='w-full marquee__content'>
-                {   
+                {
                     clientsPath.map((item, idx) => (
-                        <img key={idx} src={item} alt="company-logo" className="m-2 w-[10vw] marquee__item" />
+                        <img key={idx} src={item} alt="company-logo" className="m-2 w-[15vw] marquee__item" />
                     ))
                 }
             </div>
