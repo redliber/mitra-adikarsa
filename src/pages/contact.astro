@@ -11,6 +11,7 @@ import bulldozer from "../assets/media/stock/bulldozer.jpg"
 
 import Layout from '../layouts/Layout.astro';
 import MailingListSection from '../components/sections/MailingListSection';
+import SectionFadeIn from '../components/animated/SectionFadeIn';
 ---
 
 <Layout>
@@ -33,8 +34,8 @@ import MailingListSection from '../components/sections/MailingListSection';
 							duration={0.5}
 							stagger={0.02}
 							filter={true}
-							className={'text-left md:text-right max-w-lg text-dark-green'}
-							words={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque volutpat faucibus varius. Integer tristique posuere est, vel egestas dui mollis sed. Phasellus euismod sed neque sed iaculis.'}/>
+							className={' max-w-lg text-dark-green'}
+							words={'Kami mengundang anda untuk bekerja sama dengan PT. Mitra Adikarsa dalam menghadirkan solusi kelistrikan yang aman dan efisien. Dengan pengalaman dan tenaga ahli professional, kami siap mendukung kebutuhan proyek anda.'}/>
 					</div>
 				</div>
 			</GeneralSection>
@@ -42,6 +43,104 @@ import MailingListSection from '../components/sections/MailingListSection';
 				<img src={contact1.src} alt="electric lines" height={1000} class=""/>
 			</FullImageSection>
 		</div>
+        <GeneralSection id="contact-contact">
+            <SectionFadeIn client:load className={''}>
+                <Hero
+                    client:load
+                    duration={1.5}
+                    stagger={0.05}
+                    filter={true}
+                    className='text-yellow-green my-10'
+                    words={'Talk to Us!'}
+                />
+                <div class="flex flex-col gap-6">
+                    <div class="flex flex-row gap-10">
+                        <SubCaption client:load
+                            duration={0.5}
+                            stagger={0.02}
+                            filter={true}
+                            className={'max-w-lg text-yellow-green'}
+                            words={'Phone'}/>
+                        <div class="flex flex-col gap-2 w-[50%]">
+                            <SubCaption client:load
+                                duration={0.5}
+                                stagger={0.02}
+                                filter={true}
+                                className={'max-w-lg '}
+                                words={'021 - 29020311'}/>
+                            <SubCaption client:load
+                                duration={0.5}
+                                stagger={0.02}
+                                filter={true}
+                                className={'max-w-lg '}
+                                words={'021 - 29020312'}/>
+                        </div>
+                    </div>
+                    <div class="flex flex-row gap-10">
+                        <SubCaption client:load
+                            duration={0.5}
+                            stagger={0.02}
+                            filter={true}
+                            className={'max-w-lg text-yellow-green'}
+                            words={'E-mail'}/>
+                        <a>
+                            <SubCaption client:load
+                                duration={0.5}
+                                stagger={0.02}
+                                filter={true}
+                                className={'max-w-lg '}
+                                words={'mitradikarsa@gmail.com'}/>
+                        </a>
+                    </div>
+                </div>
+            </SectionFadeIn>
+        </GeneralSection>
+        <GeneralSection id="contact-address">
+            <SectionFadeIn client:load className={''}>
+                <Hero
+                    client:load
+                    duration={1.5}
+                    stagger={0.05}
+                    filter={true}
+                    className='text-yellow-green my-10'
+                    words={'Locations'}
+                />
+                <div class="flex flex-row gap-10 w-full">
+                    <div class="flex flex-col gap-10 w-[50%]">
+                        <SubCaption client:load
+                            duration={0.5}
+                            stagger={0.02}
+                            filter={true}
+                            className={'max-w-lg text-yellow-green'}
+                            words={'Kalideres'}/>
+                        <SubCaption client:load
+                            duration={0.5}
+                            stagger={0.02}
+                            filter={true}
+                            className={'max-w-lg '}
+                            words={'Jl. Peta Barat Citra Business Park Blok F No.33, Kalideres, Jakarta Barat'}/>
+                        <iframe class="w-full h-[600px]" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=Mitra%20Adikarsa,%20PT.%20+(Workshop%20PT.%20Mitra%20Adikarsa)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe> <a href='https://www.versicherungen.at/'>Versicherungen</a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=226630a19f66b6aad51b548d3880d17175bf2e4e'></script>
+                    </div>
+                    <div class="flex flex-col gap-10 w-[50%]">
+                        <SubCaption client:load
+                            duration={0.5}
+                            stagger={0.02}
+                            filter={true}
+                            className={'max-w-lg text-yellow-green'}
+                            words={'Bekasi - Workshop'}/>
+                        <SubCaption client:load
+                            duration={0.5}
+                            stagger={0.02}
+                            filter={true}
+                            className={'max-w-lg '}
+                            words={'Jl. Bambu Kuning Raya No.23 Pondok Bambu, Duren Sawit, Jakarta Timur'}/>
+                        <iframe class="w-full h-[600px]" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=Jl.%20Bambu%20Kuning%20Raya%20No.23%20+(Workshop%20PT.%20Mitra%20Adikarsa)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe> <a href='https://www.versicherungen.at/'>Versicherungen</a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=14664b0672d5df7b5bb19a0cfc39391ac848bae2'></script>
+                    </div>
+
+                </div>
+            </SectionFadeIn>
+        </GeneralSection>
+
 		<MailingListSection client:load id='services-mailing-list'/>
 	</div>
 </Layout>
