@@ -11,6 +11,35 @@ import bulldozer from "../assets/media/stock/bulldozer.jpg"
 
 import Layout from '../layouts/Layout.astro';
 import MailingListSection from '../components/sections/MailingListSection';
+import SectionFadeIn from '../components/animated/SectionFadeIn';
+
+const copyWrite = [
+  {
+    heading: 'Profil Perusahaan',
+    body: [
+      'Didirikan pada 13 November 2006, PT. Mitra Adikarsa adalah perusahaan terdepan dalam penyediaan layanan infrastruktur kelistrikan yang mengutamakan keandalan, efisiensi, dan keselamatan.',
+      'Kami memiliki spesialisasi dalam pemeliharaan dan pembangunan jaringan tegangan menengah serta rendah, pembangunan gardu distribusi, power plant hingga 5000 Kva/Unit, serta penanganan gangguan jaringan PLN ']
+  },
+  {
+    heading: 'Proyek Strategis',
+    body: [
+      'PT. Mitra Adikarsa dipercaya oleh PLN Unit Induk Distribusi (UID) Jakarta, Banten, Jawa Barat untuk menangani proyek di berbagai area strategis. Pada tahun 2008, kami menjadi perusahaan pertama di DKI Jakarta yang mendapatkan kepercayaan dalam mengelola pelayanan teknik PLN.'
+    ]
+  },
+  {
+    heading: 'Ekspansi dan Keunggulan',
+    body: [
+      'Kami terus memperluas jangkauan dengan memenangkan berbagai tender strategis. Kami secara strategis mendapatkan berbagai macam pekerjaan setiap tahunnya. Mencerminkan rekam jejak unggul dan kredibilitas tinggi dalam industri kelistrikan.'
+    ]
+  },
+  {
+    heading: 'Komitmen Kualitas',
+    body: [
+      'Kesuksesan PT. Mitra Adikarsa ditopang oleh yang berpengalaman, tersertifikasi, dan berorientasi pada solusi inovatif dengan menerapkan standar ISO dan praktik terbaik industri. Kami berkomitmen untuk memberikan layanan dengan presisi tinggi, efisiensi optimal, dan ketepatan waktu',
+      'Sebagai mitra strategis dalam pengembangan infrastruktur kelistrikan, PT. Mitra Adikarsa siap membantu anda mewujudkan proyek dengan keunggulan operasional dan standard profesionalisme tertinggi.'
+    ]
+  },
+]
 ---
 
 <Layout>
@@ -34,13 +63,15 @@ import MailingListSection from '../components/sections/MailingListSection';
 							stagger={0.02}
 							filter={true}
 							className={' max-w-xl '}
-							words={'PT. Mitra Adikarsa  berkomitmen untuk menghadirkan solusi infrastruktur kelistrikan yang andal dan inovatif guna mendukung kemajuan Indonesia. Dengan mengutamakan keselamatan, eﬁsiensi, dan standar kualitas tertinggi, kami memastikan pembangunan infrastruktur kelistrikan yang berkelanjutan dan berdaya saing.'}/>
+							words={'PT. Mitra Adikarsa berkomitmen untuk menghadirkan solusi infrastruktur kelistrikan yang andal dan inovatif guna mendukung kemajuan Indonesia. Dengan mengutamakan keselamatan, eﬁsiensi, dan standar kualitas tertinggi, kami memastikan pembangunan infrastruktur kelistrikan yang berkelanjutan dan berdaya saing.'}/>
 					</div>
 				</div>
 			</GeneralSection>
-			<FullImageSection id="index-hero-picture" additionalClasses={''}>
-				<img src={field.src} alt="electric lines" height={1000} class=""/>
-			</FullImageSection>
+			<SectionFadeIn client:load className={'w-full'}>
+    			<FullImageSection id="index-hero-picture" additionalClasses={'w-full'}>
+       				<img src={field.src} alt="electric lines" height={1000} width={1000} class="w-full"/>
+    			</FullImageSection>
+			</SectionFadeIn>
 		</div>
 		<MailingListSection client:load id='services-mailing-list'/>
 	</div>

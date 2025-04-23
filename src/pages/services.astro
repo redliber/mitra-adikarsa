@@ -42,9 +42,11 @@ import MailingListSection from '../components/sections/MailingListSection';
 					</div>
 				</div>
 			</GeneralSection>
-			<FullImageSection id="index-hero-picture" additionalClasses={''}>
-				<img src={bulldozer.src} alt="electric lines" height={1000} class=""/>
-			</FullImageSection>
+			<SectionFadeIn client:load className="w-full">
+    			<FullImageSection id="index-hero-picture" additionalClasses={'w-full'}>
+    				<img src={bulldozer.src} alt="electric lines" class="w-full"/>
+    			</FullImageSection>
+			</SectionFadeIn>
 		</div>
         <GeneralSection id="index-hero-caption" additionalClasses='px-12 bg-yellow-green'>
             <Caption

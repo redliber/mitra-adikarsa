@@ -26,6 +26,7 @@ import bulldozer from "../assets/media/stock/bulldozer.jpg"
 
 import companylogolarge from "../assets/media/company-logo-large.svg"
 import MailingListSection from '../components/sections/MailingListSection';
+import InnovationSection from '../components/sections/InnovationSection';
 
 
 
@@ -36,6 +37,9 @@ const words = 'Solusi infrastruktur kelistrikan yang andal dan inovatif guna men
 
 <Layout>
 	<div id="index-main-container" class="w-full flex flex-col">
+
+
+
 	   <div>
     		<GeneralSection id="index-hero-top" additionalClasses='sticky top-0 bg-dark-green'>
     			<div class="flex flex-col md:flex-row justify-between gap-10 sticky top-0 bg-dark-green">
@@ -73,18 +77,26 @@ const words = 'Solusi infrastruktur kelistrikan yang andal dan inovatif guna men
     				</div>
     			</div>
     		</GeneralSection>
-    		<FullImageSection id="index-hero-picture" additionalClasses={''}>
-    			<img src={electricLines.src} alt="electric lines" height={1000} class=""/>
-    		</FullImageSection>
+            <SectionFadeIn client:load className="w-full">
+          		<FullImageSection id="index-hero-picture" additionalClasses={'w-full'}>
+         			<img src={electricLines.src} alt="electric lines" height={1000} class="w-full"/>
+          		</FullImageSection>
+            </SectionFadeIn>
 		</div>
+
+
+
 		<div class="w-full">
 			<GeneralSection id="index-hero-caption" additionalClasses='bg-yellow-green relative md:sticky md:top-[60px] px-12'>
 				<Caption className='text-dark-green' animateText={false} words={words}/>
 			</GeneralSection>
 			<FullImageSection id="index-hero-picture" additionalClasses='max-h-[75vh]'>
-				<img src={field.src} alt="field"  class=""/>
+				<img src={field.src} alt="field"  class="w-full"/>
 			</FullImageSection>
 		</div>
+
+
+
 		<GeneralSection
 			id="index-clients"
 			additionalClasses='bg-yellow-green w-full flex flex-col overflow-hidden'
@@ -100,33 +112,8 @@ const words = 'Solusi infrastruktur kelistrikan yang andal dan inovatif guna men
 				<Clients/>
  			</SectionFadeIn>
 		</GeneralSection>
-		<GeneralSection id="index-features" additionalClasses={'flex flex-col'} innerClasses='justify-evenly w-full h-full'>
-    		<div class="my-24">
-    			<Hero
-    				client:load
-    				duration={0.5}
-    				stagger={0.1}
-    				filter={true}
-    				className={'text-yellow-green py-4  '}
-    				words={'Strength 1 We do This Thing'}
-    			/>
-    			<p>This is details of the first strength to sell you more on it.</p>
-    		</div>
-            <div class="my-24">
-    			<Hero
-    				client:load
-    				duration={0.5}
-    				stagger={0.1}
-    				filter={true}
-    				className={'text-yellow-green py-4 justify-self-end text-right'}
-    				words={'Strength 2 and This Second One Too '}
-    			/>
-    			<p class="text-right">And another detail about the second strength.</p>
-            </div>
-		</GeneralSection>
-		<FullImageSection id="index-hero-picture" additionalClasses={'h-[75vh]'}>
-			<img src={bulldozer.src} alt="electric lines" height={1000} class=""/>
-		</FullImageSection>
+
+
 		<GeneralSection id="index-services" additionalClasses=''>
 			<FrontPageCards client:load/>
 			<ButtonAnimated
@@ -140,7 +127,22 @@ const words = 'Solusi infrastruktur kelistrikan yang andal dan inovatif guna men
 				hoverColor={constColors.darkGreen}
 			>See All Our Services</ButtonAnimated>
 		</GeneralSection>
-		<MailingListSection client:load id='index-mailing-list'/>
+
+
+		<GeneralSection id="index-features" additionalClasses={'flex flex-col -my-24 md:-my-32'} innerClasses='justify-evenly w-full h-full'>
+		    <div class="sticky top-[35px] bg-dark-green z-50 w-full">
+          		<Hero
+         			client:load
+         			duration={1.5}
+         			stagger={0.05}
+         			filter={true}
+         			className='text-yellow-green my-24 z-50 text-center'
+         			words={'Our Innovations'}/>
+			</div>
+            <InnovationSection client:load/>
+		</GeneralSection>
+
+
 		<GeneralSection id='index-about' additionalClasses='bg-yellow-green'>
             <div class=" flex flex-col gap-10 justify-center align-middle content-center items-center">
                 <Hero
@@ -158,11 +160,24 @@ const words = 'Solusi infrastruktur kelistrikan yang andal dan inovatif guna men
 					className={"font-black w-max-xs w-xs my-10 text-center"}
 					initColor={constColors.darkGreen}
 					initBgColor={constColors.white}
-					hoverBgColor={constColors.yellowGreen2}
-					hoverColor={constColors.darkGreen}
+					hoverBgColor={constColors.darkGreen}
+					hoverColor={constColors.white}
 				>What We're All About</ButtonAnimated>
             </div>
     	</GeneralSection>
+
+
+
+		<FullImageSection id="index-hero-picture" additionalClasses={'h-[75vh]'}>
+			<img src={bulldozer.src} alt="electric lines" height={1000} class="w-full"/>
+		</FullImageSection>
+
+
+
+		<MailingListSection client:load id='index-mailing-list'/>
+
+
+
 	</div>
 </Layout>
 

@@ -82,7 +82,7 @@ export default function ServiceSection({children, id, heading = 'Empty Service',
 
         iconAnimate(iconScope.current, {
           rotate:405,
-          scale:2
+          scale:1.5
         },{
           duration: 0.5,
           type: 'spring'
@@ -127,12 +127,12 @@ export default function ServiceSection({children, id, heading = 'Empty Service',
           onClick={() => {
             if (useModal) {
             }
-            navigate(`#heading-${Number(id) + 2}`)
+            // navigate(`#heading-${Number(id) + 2}`)
             setModal(!useModal)
           }}
 
         >
-            <GeneralSection 
+            <GeneralSection
               id={`heading-${id}`} additionalClasses="border-b-[0.5px]
               transition delay-50 duration-100
               cursor-pointer
@@ -142,7 +142,7 @@ export default function ServiceSection({children, id, heading = 'Empty Service',
                 backgroundColor: useColor,
                 color: useInvertColor
               }}>
-              <div className="flex flex-row justify-between items-end" 
+              <div className="flex flex-row justify-between items-end"
               >
                 <div className="" ref={iconScope}>
                   <SectionFadeIn className={''}>
@@ -170,11 +170,9 @@ export default function ServiceSection({children, id, heading = 'Empty Service',
               height: '0px'
             }}>
               <FullImageSection id="index-hero-picture" additionalClasses={'h-[50vh]'}>
-                <img src={field.src} alt="electric lines" className=""/>
+                <img src={field.src} alt="electric lines" className="w-full"/>
               </FullImageSection>
-              <GeneralSection id={`body ${id}`} additionalClasses="
-                bg-dark-green
-              ">
+              <GeneralSection id={`body ${id}`} additionalClasses=" ">
                 <div >
                   <p className="text-3xl text-white">{ body }</p>
                 </div>

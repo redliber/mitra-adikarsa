@@ -45,7 +45,7 @@ export default function ServicesSections({
             {
                 servicesDetails.map((item, idx) => {
                     return (
-                        <ServiceSection id={idx} heading={item.heading} body={item.body}/>
+                        <ServiceSection key={idx} id={idx} heading={item.heading} body={item.body}/>
                     )
                 })
             }

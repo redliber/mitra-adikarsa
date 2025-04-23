@@ -10,11 +10,13 @@ export default function Caption  ({
   filter,
   animateText = true,
   duration,
+  threshold = 0.1,
   stagger
 }: {
     words: string,
     className?: string,
     filter?: boolean,
+    threshold?: number,
     animateText?: boolean,
     duration?: number,
     stagger?: number
@@ -23,7 +25,7 @@ export default function Caption  ({
     const wordsArray = words.split(' ')
 
     const [ref, entry] = useIntersectionObserver({
-        threshold: 0.1,
+        threshold: threshold,
     });
 
     useEffect(() => {
@@ -50,4 +52,3 @@ export default function Caption  ({
 
     )
 };
-
