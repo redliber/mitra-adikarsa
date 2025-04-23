@@ -1,3 +1,4 @@
+'use client'
 import React from "react"
 import ServiceSection from "./sections/ServiceSection"
 import MailingListSection from "./sections/MailingListSection"
@@ -44,11 +45,10 @@ export default function ServicesSections({
             {
                 servicesDetails.map((item, idx) => {
                     return (
-                        <ServiceSection id={`service #${idx}`} heading={item.heading} body={item.body}/>
+                        <ServiceSection id={idx} heading={item.heading} body={item.body}/>
                     )
                 })
             }
-            <MailingListSection id="services-mailing-section"/>
         </>
     )
 }

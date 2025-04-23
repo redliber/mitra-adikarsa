@@ -5,6 +5,9 @@ import '../styles/global.css'
 import favicon from '../../public/favicon.svg'
 import { ClientRouter, slide } from "astro:transitions";
 
+import LoadingIndicator from "astro-loading-indicator/component"
+import { constColors } from "../lib/const";
+
 
 let currentPath = Astro.url.pathname;
 currentPath = currentPath[-1] == "/" ? currentPath.slice(0,-1) : currentPath
@@ -20,13 +23,10 @@ currentPath = currentPath[-1] == "/" ? currentPath.slice(0,-1) : currentPath
 		<title>Mitra Adikarsa</title>
 		<ClientRouter/>
 	</head>
-	<body class="bg-dark-green font-basic">
-		<div 
-			transition:animate="slide" 
-			class="w-full text-[#FEFBDF] "
-		>
-			<Header client:load transition:persist currentPath={currentPath} />
-			<slot />
+	<body class="bg-dark-green font-basic w-full text-[#FEFBDF] " transition:animate="fade" >
+		<div>
+			<Header client:load currentPath={currentPath} />
+				<slot />
 		</div>
 		<Footer client:load/>
 	</body>

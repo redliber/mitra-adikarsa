@@ -8,15 +8,14 @@ export default function WordAnimated ({startAnimation, word, stagger, staggerAmt
         if (startAnimation) {
             animate(scope.current, {
                 opacity: 1,
-                y: 0,
-                filter: 'blur(0px)'
             }, { duration: duration, delay: stagger * staggerAmt, type: "spring" });
         }
     })
+    
     return (
         <span
             ref={scope}
-            style={{ opacity: 0, transform: 'translateY(200px)', filter: 'blur(15px)' }}
+            style={{ opacity: 0 }}
         >
             {word}{" "} 
         </span>

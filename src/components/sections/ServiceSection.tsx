@@ -5,7 +5,7 @@ import Hero from "../texts/Hero"
 import { constColors } from "../../lib/const"
 import '../../styles/global.css'
 import { useAnimate, useInView } from "framer-motion"
-import { useEffect, useLayoutEffect, useState } from "react"
+import { useEffect, useLayoutEffect, useRef, useState } from "react"
 import SectionFadeIn from "../animated/SectionFadeIn"
 import { MoveDownRight } from 'lucide-react'
 import FullImageSection from "./FullImageSection"
@@ -16,11 +16,12 @@ import electricLines from "../../assets/media/stock/electric-lines.jpg"
 import field from "../../assets/media/stock/field.jpg"
 import contact1 from "../../assets/media/stock/contact1.jpg"
 import bulldozer from "../../assets/media/stock/bulldozer.jpg"
+import { navigate } from "astro:transitions/client"
 
 
 export default function ServiceSection({children, id, heading = 'Empty Service', body = 'Empty Service Body'}: {
     children?: React.ReactNode,
-    id: string,
+    id: string | number,
     heading?: string,
     body?: string
 }) {
@@ -28,6 +29,8 @@ export default function ServiceSection({children, id, heading = 'Empty Service',
     const [iconScope, iconAnimate] = useAnimate()
     const [bodyScope, bodyAnimate] = useAnimate()
     const [bodyScopeHeight, setBodyScopeHeight] = useState('')
+
+    const headingRef = useRef(null)
 
     const [useHover, setHover] = useState(false)
     const [useModal, setModal] = useState(false)
@@ -116,57 +119,68 @@ export default function ServiceSection({children, id, heading = 'Empty Service',
 
     return (
       <div
-        className=""
-        onMouseOver={() => setHover(true)}
-        onMouseOut={() => setHover(false)}
-        onClick={() => setModal(!useModal)}
       >
-          <GeneralSection id={id} additionalClasses="border-b-[0.5px]
-            transition delay-50 duration-100
-            cursor-pointer
-            z-50
-            sticky top-[35px]
-            " style={{
-              backgroundColor: useColor,
-              color: useInvertColor
-            }}>
-            <div className="flex flex-row justify-between items-end">
-              <div className="" ref={iconScope}>
-                <SectionFadeIn className={''}>
-                  <MoveDownRight size={50} color={useInvertColor} />
-                </SectionFadeIn>
-              </div>
-              <div ref={scope}>
-                <SectionFadeIn
-                  className={''}>
-                  <Hero
-                    className=" text-right "
-                    words={heading}
-                    duration={0.3}
-                    stagger={0.05}
-                  />
-                </SectionFadeIn>
-              </div>
-            </div>
-          </GeneralSection>
-          <div
-            className=""
-            ref={bodyScope}
-            style={{
-            // transform: 'translateY(-200px)'
-            height: '0px'
-          }}>
-        		<FullImageSection id="index-hero-picture" additionalClasses={'h-[50vh]'}>
-         			<img src={field.src} alt="electric lines" className=""/>
-        		</FullImageSection>
-            <GeneralSection id={`body ${id}`} additionalClasses="
-              bg-dark-green
-            ">
-              <div >
-                <p className="text-3xl text-white">{ body }</p>
+        <div
+          className=""
+          onMouseOver={() => setHover(true)}
+          onMouseOut={() => setHover(false)}
+          onClick={() => {
+            if (useModal) {
+            }
+            navigate(`#heading-${Number(id) + 2}`)
+            setModal(!useModal)
+          }}
+
+        >
+            <GeneralSection 
+              id={`heading-${id}`} additionalClasses="border-b-[0.5px]
+              transition delay-50 duration-100
+              cursor-pointer
+              z-50
+              sticky top-[35px]
+              " style={{
+                backgroundColor: useColor,
+                color: useInvertColor
+              }}>
+              <div className="flex flex-row justify-between items-end" 
+              >
+                <div className="" ref={iconScope}>
+                  <SectionFadeIn className={''}>
+                    <MoveDownRight size={50} color={useInvertColor} />
+                  </SectionFadeIn>
+                </div>
+                <div ref={scope}>
+                  <SectionFadeIn
+                    className={''}>
+                    <Hero
+                      className=" text-right "
+                      words={heading}
+                      duration={0.3}
+                      stagger={0.05}
+                    />
+                  </SectionFadeIn>
+                </div>
               </div>
             </GeneralSection>
-          </div>
+            <div
+              className=""
+              ref={bodyScope}
+              style={{
+              // transform: 'translateY(-200px)'
+              height: '0px'
+            }}>
+              <FullImageSection id="index-hero-picture" additionalClasses={'h-[50vh]'}>
+                <img src={field.src} alt="electric lines" className=""/>
+              </FullImageSection>
+              <GeneralSection id={`body ${id}`} additionalClasses="
+                bg-dark-green
+              ">
+                <div >
+                  <p className="text-3xl text-white">{ body }</p>
+                </div>
+              </GeneralSection>
+            </div>
+        </div>
       </div>
     )
 }

@@ -1,32 +1,47 @@
 ---
-import ButtonAnimated from '../components/animated/ButtonAnimated';
+import FullImageSection from '../components/sections/FullImageSection';
+import GeneralSection from '../components/sections/GeneralSection';
 import Hero from '../components/texts/Hero';
-
-import Layout from '../layouts/Layout.astro';
+import SubCaption from '../components/texts/SubCaption';
 
 import electricLines from "../assets/media/stock/electric-lines.jpg"
 import field from "../assets/media/stock/field.jpg"
 import contact1 from "../assets/media/stock/contact1.jpg"
 import bulldozer from "../assets/media/stock/bulldozer.jpg"
+
+import Layout from '../layouts/Layout.astro';
+import MailingListSection from '../components/sections/MailingListSection';
 ---
 
 <Layout>
-    <div class="w-full min-h-screen">
-		<div class="-mb-96" id="main-hero">
-			<div class="my-12 mx-24 flex flex-row justify-between ">
-				<div class="">
-					<Hero client:load 
-						duration={2}
-						stagger={0.5}
-						filter={true} className={'text-[6vw] leading-[5vw] max-w-5xl'} words={'ABOUT US'}/>
+    <div id='about-main-container' class="w-full min-h-screen">
+		<div>
+			<GeneralSection id="index-hero-top" additionalClasses='sticky top-[30px] bg-dark-green'>
+				<div class="flex flex-col md:flex-row justify-between gap-10 sticky top-0">
+					<div class="max-w-lg">
+						<Hero
+						client:load
+						duration={1.5}
+						stagger={0.05}
+						filter={true}
+						className='text-yellow-green'
+						words={'About Us'}
+						/>
 					</div>
-					<div class="text-xl flex flex-col items-end gap-10">
-						
+					<div class="text-xl flex flex-col self-stretch justify-between pb-10 items-end md:items-end gap-10">
+						<SubCaption client:load
+							duration={0.5}
+							stagger={0.02}
+							filter={true}
+							className={'text-left md:text-right max-w-lg '}
+							words={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque volutpat faucibus varius. Integer tristique posuere est, vel egestas dui mollis sed. Phasellus euismod sed neque sed iaculis.'}/>
+					</div>
 				</div>
-			</div>
-			<div class="max-h-[75vh] overflow-hidden border-b-[0.1px] border-zinc-50/35">
-				<img src={contact1.src} alt="contacts" height={200} class="origin-bottom -translate-y-2/5"/>
-			</div>
+			</GeneralSection>
+			<FullImageSection id="index-hero-picture" additionalClasses={''}>
+				<img src={field.src} alt="electric lines" height={1000} class=""/>
+			</FullImageSection>
 		</div>
+		<MailingListSection client:load id='services-mailing-list'/>
 	</div>
 </Layout>
