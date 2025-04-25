@@ -43,7 +43,7 @@ export default function Clients() {
             <div className='w-full marquee__content'>
                 {
                     clientsPath.map((item, idx) => (
-                        <img key={idx} src={item} alt="company-logo" className="m-2 w-[15vw] marquee__item" />
+                        <img key={idx} src={item} alt="company-logo" className="m-2 w-[200px] marquee__item" />
                     ))
                 }
             </div>

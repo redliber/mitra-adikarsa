@@ -17,6 +17,8 @@ import field from "../../assets/media/stock/field.jpg"
 import contact1 from "../../assets/media/stock/contact1.jpg"
 import bulldozer from "../../assets/media/stock/bulldozer.jpg"
 import { navigate } from "astro:transitions/client"
+import { useWindowSize } from "@uidotdev/usehooks"
+import SubCaption from "../texts/SubCaption"
 
 
 export default function ServiceSection({children, id, heading = 'Empty Service', body = 'Empty Service Body'}: {
@@ -29,6 +31,8 @@ export default function ServiceSection({children, id, heading = 'Empty Service',
     const [iconScope, iconAnimate] = useAnimate()
     const [bodyScope, bodyAnimate] = useAnimate()
     const [bodyScopeHeight, setBodyScopeHeight] = useState('')
+
+    const size = useWindowSize();
 
     const headingRef = useRef(null)
 
@@ -58,7 +62,7 @@ export default function ServiceSection({children, id, heading = 'Empty Service',
 
       window.addEventListener('resize', updateHeight);
       return () => window.removeEventListener('resize', updateHeight);
-    }, []);
+    }, [size]);
 
     useEffect(() => {
       if (useModal) {
@@ -132,6 +136,11 @@ export default function ServiceSection({children, id, heading = 'Empty Service',
           }}
 
         >
+
+
+
+
+
             <GeneralSection
               id={`heading-${id}`} additionalClasses="border-b-[0.5px]
               transition delay-50 duration-100
@@ -144,7 +153,7 @@ export default function ServiceSection({children, id, heading = 'Empty Service',
               }}>
               <div className="flex flex-row justify-between items-end"
               >
-                <div className="" ref={iconScope}>
+                <div className="invisible md:visible" ref={iconScope}>
                   <SectionFadeIn className={''}>
                     <MoveDownRight size={50} color={useInvertColor} />
                   </SectionFadeIn>
@@ -162,22 +171,33 @@ export default function ServiceSection({children, id, heading = 'Empty Service',
                 </div>
               </div>
             </GeneralSection>
+
+
+
+
+
             <div
               className=""
               ref={bodyScope}
               style={{
-              // transform: 'translateY(-200px)'
-              height: '0px'
+                // transform: 'translateY(-200px)'
+                height: '0px',
+                zIndex: 999 + Number(id)
             }}>
               <FullImageSection id="index-hero-picture" additionalClasses={'h-[50vh]'}>
                 <img src={field.src} alt="electric lines" className="w-full"/>
               </FullImageSection>
-              <GeneralSection id={`body ${id}`} additionalClasses=" ">
-                <div >
-                  <p className="text-3xl text-white">{ body }</p>
-                </div>
+              <GeneralSection id={`body ${id}`} additionalClasses=" bg-dark-green">
+                  <p className="text-3xl md:text-5xl max-w-5xl text-right place-self-end">
+                    {body}
+                  </p>
               </GeneralSection>
             </div>
+
+
+
+
+
         </div>
       </div>
     )

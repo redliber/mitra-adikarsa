@@ -30,7 +30,7 @@ export default function SubCaption  ({
 
     return (
         <div ref={ref}>
-            <p className={className + ' text-lg md:text-2xl leading-[1.25rem] md:leading-[1.5rem] font-thin max-w-5xl'}>
+            <p className={className + ' text-xl md:text-2xl leading-[1.25rem] md:leading-[1.5rem] font-thin max-w-5xl'}>
                 {
                     wordsArray.map((item, idx) => {
                         return (

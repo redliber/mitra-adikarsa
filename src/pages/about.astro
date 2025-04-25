@@ -4,14 +4,13 @@ import GeneralSection from '../components/sections/GeneralSection';
 import Hero from '../components/texts/Hero';
 import SubCaption from '../components/texts/SubCaption';
 
-import electricLines from "../assets/media/stock/electric-lines.jpg"
-import field from "../assets/media/stock/field.jpg"
-import contact1 from "../assets/media/stock/contact1.jpg"
-import bulldozer from "../assets/media/stock/bulldozer.jpg"
-
 import Layout from '../layouts/Layout.astro';
 import MailingListSection from '../components/sections/MailingListSection';
 import SectionFadeIn from '../components/animated/SectionFadeIn';
+import HeroTopSection from '../components/sections/HeroTopSection';
+import { stockImages } from '../lib/const';
+import Caption from '../components/texts/Caption';
+import Card from '../components/cards/Card';
 
 const copyWrite = [
   {
@@ -29,7 +28,8 @@ const copyWrite = [
   {
     heading: 'Ekspansi dan Keunggulan',
     body: [
-      'Kami terus memperluas jangkauan dengan memenangkan berbagai tender strategis. Kami secara strategis mendapatkan berbagai macam pekerjaan setiap tahunnya. Mencerminkan rekam jejak unggul dan kredibilitas tinggi dalam industri kelistrikan.'
+      'Kami terus memperluas jangkauan dengan memenangkan berbagai tender strategis.',
+	  'Kami secara strategis mendapatkan berbagai macam pekerjaan setiap tahunnya. Mencerminkan rekam jejak unggul dan kredibilitas tinggi dalam industri kelistrikan.'
     ]
   },
   {
@@ -40,39 +40,242 @@ const copyWrite = [
     ]
   },
 ]
+
+const cards = ['Ideas', 'People', 'Execution', 'Tool', 'Plan']
+const cardsImages = [
+	stockImages.electriccharging.src,
+	stockImages.teamwork.src,
+	stockImages.execution.src,
+	stockImages.tools.src,
+	stockImages.planning.src,
+]
+
+const values = [
+	'Kami beroperasi di setiap lingkup nilai inti dengan keterlibatan penuh memastikan setiap aspek diperkaya dengan ide dan inovasi yang relevan serta berdampak.',
+	'Kami terlibat secara penuh dalam setiap aspek pekerjaan, memastikan setiap proses berjalan optimal. Didukung oleh SDM profesional yang terlatih, berpengalaman, serta memiliki jiwa inovatif, termasuk manajer proyek dan tenaga ahli berdedikasi. Kami menghadirkan solusi yang unggul.',
+	'Dengan peralatan modern dan pendekatan strategis, kami mengoordinasikan setiap ide dan perencanaan secara sistematis untuk mewujudkan hasil yang presisi, efektif, dan berkualitas tinggi.'
+]
+
+const visi = 'Menjadi perusahaan mekanikal dan elektrikal terdepan yang tidak hanya unggul di tingkat nasional, tetapi juga berdaya saing global. Kami berkomitmen untuk menghadirkan layanan berkualitas tinggi dengan standar internasional, didukung oleh inovasi, eﬁsiensi, dan keunggulan teknis guna memberikan nilai maksimal bagi pelanggan dan mitra bisnis.'
+
+const misi1 = 'Kami berkomitmen untuk menghadirkan solusi mekanikal dan elektrikal yang inovatif, efisien, dan berstandar internasional dengan mengutamakan kualitas terbaik melalui teknologi terkini, material unggulan, serta tenaga ahli yang kompeten. Kami membangun kepercayaan dan kemitraan jangka panjang dengan pelanggan, mitra bisnis, dan investor melalui transparansi dan profesionalisme.'
+const misi2 = 'Dengan semangat daya saing, kami terus berkembang di tingkat nasional dan global, menghadirkan layanan yang memenuhi standar internasional. Kami juga berkomitmen pada praktik bisnis yang berkelanjutan, bertanggung jawab terhadap lingkungan dan masyarakat.'
 ---
 
 <Layout>
     <div id='about-main-container' class="w-full min-h-screen">
-		<div>
-			<GeneralSection id="index-hero-top" additionalClasses='sticky top-[30px] bg-dark-green'>
-				<div class="flex flex-col md:flex-row justify-between gap-10 sticky top-0">
-					<div class="max-w-lg">
-						<Hero
+
+
+
+		<HeroTopSection 
+			client:load id="about" 
+			heroText='About Us' 
+			heroCaption='PT. Mitra Adikarsa berkomitmen untuk menghadirkan solusi infrastruktur kelistrikan yang andal dan inovatif guna mendukung kemajuan Indonesia. Dengan mengutamakan keselamatan, eﬁsiensi, dan standar kualitas tertinggi, kami memastikan pembangunan infrastruktur kelistrikan yang berkelanjutan dan berdaya saing.'
+			heroImgSrc={stockImages.field}
+		/>
+
+
+
+		<GeneralSection id="about-profile">
+			<div>
+				<div class="sticky top-[60px] bg-dark-green py-12 ">
+					<SubCaption
 						client:load
 						duration={1.5}
 						stagger={0.05}
 						filter={true}
-						className='text-yellow-green'
-						words={'About Us'}
-						/>
-					</div>
-					<div class="text-xl flex flex-col self-stretch justify-between pb-10 items-end md:items-end gap-10">
-						<SubCaption client:load
-							duration={0.5}
-							stagger={0.02}
-							filter={true}
-							className={' max-w-xl '}
-							words={'PT. Mitra Adikarsa berkomitmen untuk menghadirkan solusi infrastruktur kelistrikan yang andal dan inovatif guna mendukung kemajuan Indonesia. Dengan mengutamakan keselamatan, eﬁsiensi, dan standar kualitas tertinggi, kami memastikan pembangunan infrastruktur kelistrikan yang berkelanjutan dan berdaya saing.'}/>
-					</div>
+						className=' text-yellow-green  bg-dark-green'
+						words={copyWrite[0].heading}/>
 				</div>
+				<Hero
+					client:load
+					duration={1.5}
+					stagger={0.05}
+					filter={true}
+					className=''
+					words={copyWrite[0].body[0]}/>
+				<FullImageSection id="about-electrician" additionalClasses={'w-full my-24'}>
+					<img src={stockImages.electrician.src} alt={''} height={1000} class=""/>
+				</FullImageSection>
+				<Caption
+					client:load
+					duration={1.5}
+					stagger={0.05}
+					filter={true}
+					className='text-right'
+					words={copyWrite[0].body[1]}/>
+			</div>
+		</GeneralSection>
+
+
+
+		<GeneralSection id="about-strategic">
+			<Hero
+				client:load
+				duration={1.5}
+				stagger={0.05}
+				filter={true}
+				className=' text-yellow-green my-24'
+				words={copyWrite[1].heading}/>
+			<Caption
+				client:load
+				duration={1.5}
+				stagger={0.05}
+				filter={true}
+				className='text-left'
+				words={copyWrite[1].body[0]}/>
+			<GeneralSection id="about-electrician" additionalClasses={'w-full'}>
+				<img src={stockImages.electriclines2.src} alt={''} height={1000} class=""/>
 			</GeneralSection>
-			<SectionFadeIn client:load className={'w-full'}>
-    			<FullImageSection id="index-hero-picture" additionalClasses={'w-full'}>
-       				<img src={field.src} alt="electric lines" height={1000} width={1000} class="w-full"/>
-    			</FullImageSection>
-			</SectionFadeIn>
-		</div>
+		</GeneralSection>
+
+
+
+		<GeneralSection id="about-expansion">
+			<SubCaption
+				client:load
+				duration={1.5}
+				stagger={0.05}
+				filter={true}
+				className=' text-yellow-green my-12'
+				words={copyWrite[2].heading}/>
+			<Hero
+				client:load
+				duration={1.5}
+				stagger={0.05}
+				filter={true}
+				className='text-left my-24'
+				words={copyWrite[2].body[0]}/>
+			<Caption
+				client:load
+				duration={1.5}
+				stagger={0.05}
+				filter={true}
+				className='text-right'
+				words={copyWrite[2].body[1]}/>
+		</GeneralSection>
+		<FullImageSection id="about-electrician" additionalClasses={'w-full'}>
+			<img src={stockImages.electriclines3.src} alt={''} height={1000} class=""/>
+		</FullImageSection>
+
+
+
+
+		<GeneralSection id="about-commitment">
+			<SubCaption
+				client:load
+				duration={1.5}
+				stagger={0.05}
+				filter={true}
+				className=' text-yellow-green my-12'
+				words={copyWrite[3].heading}/>
+			<Caption
+				client:load
+				duration={1.5}
+				stagger={0.05}
+				filter={true}
+				className='text-left my-24'
+				words={copyWrite[3].body[0]}/>
+		</GeneralSection>
+		<FullImageSection id="about-electrician" additionalClasses={'w-full h-[100vh]'}>
+			<img src={stockImages.solar.src} alt={''} height={500} class="w-full"/>
+		</FullImageSection>
+		<GeneralSection id="about-commitment-2">
+			<Caption
+				client:load
+				duration={1.5}
+				stagger={0.05}
+				filter={true}
+				className='text-right'
+				words={copyWrite[2].body[1]}/>
+		</GeneralSection>
+
+
+
+		<GeneralSection id="about-expertise">
+			<div class="flex flex-col md:flex-row gap-10 text-left md:gap-4">
+				{
+					cards.map((item, index) => (
+						<Caption
+							client:load
+							duration={1}
+							stagger={0.05}
+							filter={true}
+							className='text-yellow-green'
+							words={item}/>
+					))
+				}
+			</div>			
+		</GeneralSection>
+		<GeneralSection additionalClasses='bg-yellow-green text-dark-green' id="'">
+			<Hero
+				client:load
+				duration={1.5}
+				stagger={0.05}
+				filter={true}
+				className='text-left my-24  '
+				words={values[0]}/>
+			<SubCaption
+				client:load
+				duration={1.5}
+				stagger={0.05}
+				filter={true}
+				className='text-left mb-10'
+				words={values[1]}/>
+			<SubCaption
+				client:load
+				duration={1.5}
+				stagger={0.05}
+				filter={true}
+				className='text-left '
+				words={values[2]}/>
+		</GeneralSection>
+
+		<GeneralSection id="about-vision-mission" innerClasses='flex flex-col sm:flex-row gap-10 w-full'>
+			<div class="w-full sm:w-[50%]">
+				<Hero
+					client:load
+					duration={1.5}
+					stagger={0.05}
+					filter={true}
+					className=' text-yellow-green my-24  '
+					words={'Visi'}/>
+				<SubCaption
+					client:load
+					duration={1.5}
+					stagger={0.05}
+					filter={true}
+					className='text-justify my-24 '
+					words={visi}/>
+			</div>
+			<div class="w-full sm:w-[50%]">
+				<Hero
+					client:load
+					duration={1.5}
+					stagger={0.05}
+					filter={true}
+					className=' text-yellow-green my-24  '
+					words={'Misi'}/>
+				<SubCaption
+					client:load
+					duration={1.5}
+					stagger={0.05}
+					filter={true}
+					className='text-justify my-10 '
+					words={misi1}/>
+				<SubCaption
+					client:load
+					duration={1.5}
+					stagger={0.05}
+					filter={true}
+					className='text-justify my-10 '
+					words={misi2}/>
+			</div>
+
+		</GeneralSection>
+
+
+
 		<MailingListSection client:load id='services-mailing-list'/>
 	</div>
 </Layout>

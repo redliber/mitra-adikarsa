@@ -1,3 +1,4 @@
+'use client'
 
 import Image from "astro/components/Image.astro"
 import ButtonAnimated from './animated/ButtonAnimated'
@@ -5,10 +6,11 @@ import companylogo from "../assets/media/company-logo.svg"
 import { useWindowScroll, useWindowSize } from "@uidotdev/usehooks"
 import '../styles/global.css'
 import { constColors } from "../lib/const"
-import { useAnimate } from "framer-motion"
+import { px, useAnimate } from "framer-motion"
 import { useEffect, useState } from "react"
 import Hero from "./texts/Hero"
-import {MoveUpRight} from 'lucide-react'
+import {Menu, MoveUpRight} from 'lucide-react'
+import { NoToneMapping } from "three"
 
 export default function Header({currentPath}) {
     const {width, height} = useWindowSize()
@@ -16,7 +18,7 @@ export default function Header({currentPath}) {
     const [overlayScope, overlayAnimate] = useAnimate()
 
     const [useOpenTab,setOpenTab] = useState(false)
-    const [useCloseTab,setCloseTab] = useState(true)
+    const [useCloseTab,setCloseTab] = useState(false)
 
     const tabs = [
         {
@@ -44,54 +46,45 @@ export default function Header({currentPath}) {
     function handleClose() {
         overlayAnimate(overlayScope.current,
             {
-                y: -100,
-                opacity: 0
+                y: '-800px',
+                opacity: 0,
+                display: 'none',
+                visibility: 'hidden'
+            },
+            {
+                duration: 1,
+                type: 'spring'
+            }
+        )
+
+    }
+
+    function handleOpen() {
+        overlayAnimate(overlayScope.current,
+            {
+                y: 0,
+                opacity: 1,
+                display: 'inline',
+                visibility: 'visible'
             },
             {
                 duration: 0.75,
                 type: 'spring'
             }
-        ).then(()=> setOpenTab(!useOpenTab))
-
+        )
     }
 
-    useEffect(() => {
-        if (useOpenTab) {
-            overlayAnimate(overlayScope.current,
-                {
-                    y: 0,
-                    opacity: 1
-                },
-                {
-                    duration: 0.5,
-                    type: 'spring'
-                }
-            )
-        }
-        // if (useCloseTab) {
-        //     overlayAnimate(overlayScope.current,
-        //         {
-        //             y: -800,
-        //             opacity: 0
-        //         },
-        //         {
-        //             duration: 0.5,
-        //             type: 'spring'
-        //         }
-        //     )
-        // }
-    }, [useOpenTab])
 
     return (
         <div
             // ref={scope}
-            className="w-full h-[30px] flex flex-row justify-between py-10 md:py-10 px-10 md:px-20 text-sm sticky top-0 z-[99] bg-dark-green"
+            className="w-full md:h-[30px] flex flex-row align-middle justify-between py-10 md:py-10 px-6 md:px-10 text-sm sticky top-0 z-[99] bg-dark-green"
             // style={regularState}
 
         >
-            <div className="flex flex-row items-center gap-2">
+            <div className="flex flex-row items-center gap-2 h-full">
                 <img src={companylogo.src} alt="company-logo" className="w-[50px]" />
-                <a href="/mitra-adikarsa" className="max-w-1.5 leading-[0.8rem] visible md:visible">
+                <a href="/mitra-adikarsa" className="max-w-1.5 leading-[0.8rem] invisible md:visible">
                     MITRA ADIKARSA
                 </a>
             </div>
@@ -151,90 +144,77 @@ export default function Header({currentPath}) {
                     </div>
                   </>
                 )
-            // }
-            // {
-            //     width < 768 && (
-            //         <div className="">
-            //             <button onClick={() => {
-            //                 setOpenTab(!useOpenTab)
-            //                 // setCloseTab(false)
-            //                 }}>MENU</button>
-            //             {
-            //                 useOpenTab && (
-            //                     <div>
-            //                         <div
-            //                             className="fixed top-0 left-0 h-[50vh] w-full z-[95] items-end -mt-24"
-            //                             >
-            //                             <div
-            //                                 className="h-full w-full border-b-[0.1px] grainy-bg shadow-2xl flex flex-col justify-end"
-            //                                 ref={overlayScope}
-            //                                 style={{
-            //                                     backgroundColor: constColors.darkGreen2,
-            //                                     transform: 'translateY(-800px)',
-            //                                     opacity:0
-            //                                 }}
-            //                             >
-            //                                 <div className="flex flex-col p-10 gap-10 w-full items-center">
-            //                                     <div className="flex flex-row gap-4 w-full justify-between">
-            //                                         <img src={companylogo.src} alt="company-logo" className="w-[50px]" />
-            //                                         <button className="text-2xl" onClick={() =>{
+            }
+            {
+                width < 768 && (
+                    <div className="h-full">
+                        <Menu onClick={() => handleOpen()} size={25} color={'white'} />
+                        <div
+                            className="fixed top-0 left-0 h-[100vh] w-full z-[99999] items-center"
+                            ref={overlayScope}
+                            style={{
+                                backgroundColor: constColors.darkGreen2,
+                                transform: 'translateY(-800px)',
+                                opacity:0,
+                                visibility: 'hidden',
+                                // display: 'none',
+                            }}
+                            >
+                            <div
+                                className="h-full w-full flex flex-col justify-center"
 
-            //                                             // setCloseTab(true)
-            //                                             handleClose()
-            //                                             }}>✖</button>
-            //                                     </div>
-            //                                     <div className="flex flex-col gap-2 w-full sm:w-1/3 md:w-1/2 place-self-end pb-2">
-            //                                         {
-            //                                             tabs.map((item, index) => {
-            //                                                 if (currentPath == item.route) {
-            //                                                     return (
-            //                                                         <ButtonAnimated
-            //                                                             client:load
-            //                                                             label={item.label}
-            //                                                             href={item.route}
-            //                                                             className={"w-full"}
-            //                                                             initColor={constColors.darkGreen}
-            //                                                             initBgColor={constColors.yellowGreen}
-            //                                                             hoverBgColor={constColors.white}
-            //                                                             hoverColor={constColors.darkGreen}
-            //                                                             >{item.label}</ButtonAnimated>
-            //                                                         )
-            //                                                     }
-            //                                                     return (
-            //                                                         <ButtonAnimated
-            //                                                         client:load
-            //                                                         className="w-full "
-            //                                                         label={item.label}
-            //                                                         href={item.route}
-            //                                                         initColor={constColors.white}
-            //                                                         hoverColor={constColors.yellowGreen}
-            //                                                         initBgColor={constColors.white + '00'}
-            //                                                         hoverBgColor={constColors.white + '00'}
-            //                                                     >{item.label}</ButtonAnimated>
-            //                                                 )
-            //                                             })
-            //                                         }
-            //                                         <ButtonAnimated
-            //                                             client:load
-            //                                             label={'↗ CONTACT US'}
-            //                                             href={'/mitra-adikarsa/contact'}
-            //                                             className={"font-black mt-12"}
-            //                                             initColor={constColors.darkGreen}
-            //                                             initBgColor={constColors.white}
-            //                                             hoverBgColor={constColors.yellowGreen2}
-            //                                             hoverColor={constColors.darkGreen}
-            //                                         >{item.label}</ButtonAnimated>
-            //                                     </div>
-            //                                 </div>
-            //                             </div>
-            //                         </div>
-            //                     </div>
-
-
-            //                 )
-            //             }
-            //         </div>
-            //     )
+                            >
+                                <div className="flex flex-col gap-10 w-full h-full items-center">
+                                    <div className="flex flex-row gap-4 p-10 w-full justify-center">
+                                        <button className="text-4xl active:rotate-[360deg] transition-all duration-100 " onClick={() => handleClose()}>✖</button>
+                                    </div>
+                                    <div className="flex flex-col gap-2 w-full h-full  pb-2">
+                                        {
+                                            tabs.map((item, index) => {
+                                                if (currentPath == item.route) {
+                                                    return (
+                                                        <ButtonAnimated
+                                                            client:load
+                                                            label={item.label}
+                                                            href={item.route}
+                                                            className={"w-full text-3xl text-center"}
+                                                            initColor={constColors.yellowGreen}
+                                                            initBgColor={constColors.darkGreen}
+                                                            hoverBgColor={constColors.yellowGreen}
+                                                            hoverColor={constColors.darkGreen}
+                                                        >{item.label}</ButtonAnimated>
+                                                        )
+                                                    }
+                                                    return (
+                                                        <ButtonAnimated
+                                                            client:load
+                                                            className="w-full text-3xl text-center"
+                                                            label={item.label}
+                                                            href={item.route}
+                                                            initColor={constColors.white}
+                                                            hoverColor={constColors.yellowGreen}
+                                                            initBgColor={constColors.white + '00'}
+                                                            hoverBgColor={constColors.white + '00'}
+                                                    >{item.label}</ButtonAnimated>
+                                                )
+                                            })
+                                        }
+                                        <ButtonAnimated
+                                            client:load
+                                            label={'↗ CONTACT US'}
+                                            href={'/mitra-adikarsa/contact'}
+                                            className={"w-full text-3xl text-center mt-32 font-black bottom-0"}
+                                            initColor={constColors.darkGreen}
+                                            initBgColor={constColors.white}
+                                            hoverBgColor={constColors.yellowGreen2}
+                                            hoverColor={constColors.darkGreen}
+                                        >CONTACT US</ButtonAnimated>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )
             }
         </div>
     )

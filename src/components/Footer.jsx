@@ -75,7 +75,7 @@ export default function Footer({}) {
                             <p className="mb-10 font-black">PAGES</p>
                             {
                                 tabs.map((item, index) => (
-                                    <a href={item.route} key={index} className="font-thin">{item.label}</a>
+                                    <a href={item.route} key={index} className="font-thin hover:text-yellow-green transition-all duration-75 ease-in">{item.label}</a>
                                 ))
                             }
                         </div>

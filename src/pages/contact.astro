@@ -12,37 +12,25 @@ import bulldozer from "../assets/media/stock/bulldozer.jpg"
 import Layout from '../layouts/Layout.astro';
 import MailingListSection from '../components/sections/MailingListSection';
 import SectionFadeIn from '../components/animated/SectionFadeIn';
+import HeroTopSection from '../components/sections/HeroTopSection';
+import { stockImages } from '../lib/const';
 ---
 
 <Layout>
     <div id='contact-main-container' class="w-full min-h-screen">
-		<div>
-			<GeneralSection id="index-hero-top" additionalClasses='sticky top-[30px] bg-yellow-green'>
-				<div class="flex flex-col md:flex-row justify-between gap-10 sticky top-0">
-					<div class="max-w-lg">
-						<Hero
-						client:load
-						duration={1.5}
-						stagger={0.05}
-						filter={true}
-						className='text-dark-green'
-						words={'Contact Us'}
-						/>
-					</div>
-					<div class="text-xl flex flex-col self-stretch justify-between pb-10 items-end md:items-end gap-10">
-						<SubCaption client:load
-							duration={0.5}
-							stagger={0.02}
-							filter={true}
-							className={' max-w-lg text-dark-green'}
-							words={'Kami mengundang anda untuk bekerja sama dengan PT. Mitra Adikarsa dalam menghadirkan solusi kelistrikan yang aman dan efisien. Dengan pengalaman dan tenaga ahli professional, kami siap mendukung kebutuhan proyek anda.'}/>
-					</div>
-				</div>
-			</GeneralSection>
-			<FullImageSection id="index-hero-picture" additionalClasses={''}>
-				<img src={contact1.src} alt="electric lines" height={1000} class=""/>
-			</FullImageSection>
-		</div>
+
+
+
+        <HeroTopSection
+			client:load id="contact" 
+			heroText='Contact Us' 
+			heroCaption='Kami mengundang anda untuk bekerja sama dengan PT. Mitra Adikarsa dalam menghadirkan solusi kelistrikan yang aman dan efisien. Dengan pengalaman dan tenaga ahli professional, kami siap mendukung kebutuhan proyek anda.'
+			heroImgSrc={stockImages.contact1}
+		/>
+
+
+
+
         <GeneralSection id="contact-contact">
             <SectionFadeIn client:load className={''}>
                 <Hero
@@ -95,6 +83,10 @@ import SectionFadeIn from '../components/animated/SectionFadeIn';
                 </div>
             </SectionFadeIn>
         </GeneralSection>
+
+
+
+
         <GeneralSection id="contact-address">
             <SectionFadeIn client:load className={''}>
                 <Hero
@@ -105,8 +97,8 @@ import SectionFadeIn from '../components/animated/SectionFadeIn';
                     className='text-yellow-green my-10'
                     words={'Locations'}
                 />
-                <div class="flex flex-row gap-10 w-full">
-                    <div class="flex flex-col gap-10 w-[50%]">
+                <div class="flex flex-col md:flex-row gap-10 w-full">
+                    <div class="flex flex-col gap-10 w-full md:w-[50%]">
                         <SubCaption client:load
                             duration={0.5}
                             stagger={0.02}
@@ -121,7 +113,7 @@ import SectionFadeIn from '../components/animated/SectionFadeIn';
                             words={'Jl. Peta Barat Citra Business Park Blok F No.33, Kalideres, Jakarta Barat'}/>
                         <iframe class="w-full h-[600px]" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=Mitra%20Adikarsa,%20PT.%20+(Workshop%20PT.%20Mitra%20Adikarsa)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe> <a href='https://www.versicherungen.at/'>Versicherungen</a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=226630a19f66b6aad51b548d3880d17175bf2e4e'></script>
                     </div>
-                    <div class="flex flex-col gap-10 w-[50%]">
+                    <div class="flex flex-col gap-10 w-full md:w-[50%]">
                         <SubCaption client:load
                             duration={0.5}
                             stagger={0.02}

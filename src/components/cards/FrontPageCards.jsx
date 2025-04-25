@@ -16,7 +16,7 @@ export default function FrontPageCards() {
         }
     ]
     return (
-        <div className="flex flex-col md:flex-row gap-10 justify-center py-24 md:py-32">
+        <div className="flex flex-col md:flex-row gap-2 md:gap-6 justify-center py-24 md:py-32">
             {
                 servicesData.map((item, idx) => {
                     return (

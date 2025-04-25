@@ -37,8 +37,6 @@ export default function InnovationSection() {
 
     const percentage = scaleValue(y!, [offsetPos! - (size?.height! * 0.5), offsetPos! + bodyRef.current?.clientHeight!], [0, 100])
     setPercentage(percentage + percentage * 0.5)
-    console.log('percentage --> ', percentage)
-    console.log('size --> ', size)
 
   }, [useWindowSize, y])
   return (
@@ -67,7 +65,7 @@ export default function InnovationSection() {
           )})
         }
       </div>
-      <div className="h-full place-self-center w-[10%] absolute top-0 left-[45%] origin-center -z-50" style={{
+      <div className="h-full place-self-center w-[5%] md:w-[10%] absolute top-0 left-[47.5%] md:left-[45%] origin-center -z-50" style={{
         background: `linear-gradient(
           to bottom,
           var(--color-yellow-green) ${usePercentage}%,

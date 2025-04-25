@@ -9,7 +9,7 @@ export default function GeneralSection({children, id, additionalClasses, innerCl
 }) {
     return (
         <section id={id} className={additionalClasses + ' '} style={style}>
-            <div className={innerClasses + ' flex flex-col py-24 md:py-32 px-6 md:px-20 lg:px-24 2xl:px-32 h-full'}>
+            <div className={innerClasses + ' flex flex-col py-20 md:py-24 px-6 md:px-20 lg:px-24 2xl:px-32 h-full'}>
                 {children}
             </div>
         </section>

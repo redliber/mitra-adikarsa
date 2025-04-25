@@ -11,7 +11,7 @@ export default function ServicesSections({
     const servicesDetails = [
         {
             heading: 'Kontraktor Umum',
-            body: 'Kami ahli dalam perancangan, pembangunan, dan implementasi jaringan. Listrik MV hingga LV, mencakup SKTM, SKTR, SUTM, SUTR, Gardu. Distribusi, Panel Industri, Genset, dan Infrastruktur Lainnya. Kami bekerja. Dengan penyedia material berkualitas, Baik Nasional maupun Internasional, sesuai standar industri.'},
+            body: 'Kami ahli dalam perancangan, pembangunan, dan implementasi jaringan. Listrik MV hingga LV, mencakup SKTM, SKTR, SUTM, SUTR, Gardu. Distribusi, Panel Industri, Genset, dan Infrastruktur Lainnya. \n Kami bekerja. Dengan penyedia material berkualitas, Baik Nasional maupun Internasional, sesuai standar industri.'},
         {
             heading: 'Konsultan Perancanaan',
             body: 'Kami menyediakan SDM berkualitas untuk perencanaan Infrastruktur. Kelistrikan di Sektor Bisnis, Industri, dan Sistem Kompleks lainnya. Tim Profesional kami siap memberikan layanan terbaik sesuai kebutuhan.'},

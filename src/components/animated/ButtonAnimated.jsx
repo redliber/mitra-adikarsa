@@ -17,7 +17,7 @@ export default function ButtonAnimated({
 
     // Animation States and Transitions
 
-    const hoveredAnim = { scale: 1.125, rotation: 25,
+    const hoveredAnim = { scale: 1.075, rotation: 25,
         background: hoverBgColor,
         color: hoverColor, backdropFilter: 'blur(10px)' }
     const hoveredTransition = { duration: 0.5, type: "spring" }
