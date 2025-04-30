@@ -4,6 +4,7 @@ content:
     label : Copywriting
     type : collection
     path : src/content/copywriting
+    filename : fields.title
     view :
       sort : [page, index]
     fields :
