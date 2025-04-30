@@ -14,6 +14,9 @@ content:
       - name : text
         label : Text
         type : string
+      - name : type
+        label : Type
+        type : string
   - name : posts
     label : Posts
     type : collection
