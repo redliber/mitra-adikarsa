@@ -1,5 +1,19 @@
 media : "src/contents/media"
 content:
+  - name : copywriting
+    label : Copywriting
+    type : collection
+    path : src/contents/copywriting
+    fields :
+      - name : page
+        label : Page
+        type : string
+      - name : index
+        label : Index
+        type : number
+      - name : text
+        label : Text
+        type : string
   - name : posts
     label : Posts
     type : collection
