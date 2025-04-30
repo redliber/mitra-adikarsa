@@ -4,7 +4,7 @@ content:
     label : Copywriting
     type : collection
     path : src/content/copywriting
-    filename : '{primary}'
+    filename : '{primary}.md'
     view :
       sort : [page, index]
       primary : title
