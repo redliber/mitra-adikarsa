@@ -4,9 +4,10 @@ content:
     label : Copywriting
     type : collection
     path : src/content/copywriting
-    filename : '{fields.title}'
+    filename : '{title}'
     view :
       sort : [page, index]
+      primary : title
     fields :
       - name : title
         label : Title
