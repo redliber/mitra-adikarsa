@@ -5,6 +5,9 @@ content:
     type : collection
     path : src/contents/copywriting
     fields :
+      - name : title
+        label : Title
+        type : string
       - name : page
         label : Page
         type : string
