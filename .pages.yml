@@ -1,9 +1,9 @@
-media : "src/contents/media"
+media : "src/content/media"
 content:
   - name : copywriting
     label : Copywriting
     type : collection
-    path : src/contents/copywriting
+    path : src/content/copywriting
     view :
       sort : [page, index]
     fields :
@@ -25,7 +25,7 @@ content:
   - name : posts
     label : Posts
     type : collection
-    path : src/contents/posts
+    path : src/content/posts
     fields : 
       - name : published
         label : Published
