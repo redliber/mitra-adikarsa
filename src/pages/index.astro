@@ -1,6 +1,9 @@
 ---
 import '../styles/global.css';
+
 import { Image } from 'astro:assets';
+import { getCollection, getEntry } from 'astro:content';
+
 import Layout from '../layouts/Layout.astro';
 import { constColors, stockImages } from '../lib/const';
 
@@ -25,6 +28,11 @@ import HeroTopSection from '../components/sections/HeroTopSection';
 
 const words = 'Solusi infrastruktur kelistrikan yang andal dan inovatif guna mendukung kemajuan Indonesia. Dengan mengutamakan keselamatan, efisiensi, dan standar kualitas tertinggi, kami memastikan pembangunan infrastruktur kelistrikan yang berkelanjutan dan berdaya saing.'
 
+const copywriting = await getCollection('copywriting', ({data}) => {
+	return data.page == "index"
+})
+const data = copywriting.map((entry) => entry.data).sort((a,b) => a.index - b.index)
+
 ---
 
 <Layout>
@@ -35,8 +43,8 @@ const words = 'Solusi infrastruktur kelistrikan yang andal dan inovatif guna men
 	   <HeroTopSection 
 			client:load 
 			id="index" 
-			heroText='One-Stop \n Electrical \n Solution' 
-			heroCaption='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque volutpat faucibus varius. Integer tristique posuere est, vel egestas dui mollis sed. Phasellus euismod sed neque sed iaculis.'
+			heroText={data[0].text} 
+			heroCaption={data[1].text}
 			heroImgSrc={stockImages.electriclines}
 		>
 			<SectionFadeIn client:load className={'pt-10'} >
@@ -64,7 +72,7 @@ const words = 'Solusi infrastruktur kelistrikan yang andal dan inovatif guna men
 			>
 				<Caption 
 					className='text-dark-green md:text-center text-left' 
-					animateText={false} words={words}
+					animateText={false} words={data[2].text}
 				/>
 			</GeneralSection>
 			<FullImageSection id="index-hero-picture" additionalClasses='max-h-[75vh]'>
@@ -84,7 +92,7 @@ const words = 'Solusi infrastruktur kelistrikan yang andal dan inovatif guna men
 				stagger={0.05}
 				filter={true}
 				className='text-dark-green my-10'
-				words={'Trusted by Our Clients'}/>
+				words={data[3].text}/>
  			<SectionFadeIn className='' client:load>
 				<Clients/>
  			</SectionFadeIn>
@@ -92,7 +100,11 @@ const words = 'Solusi infrastruktur kelistrikan yang andal dan inovatif guna men
 
 
 		<GeneralSection id="index-services" additionalClasses=''>
-			<FrontPageCards client:load/>
+			<FrontPageCards data={[
+				{heading: data[4].text, body: data[5].text},
+				{heading: data[6].text, body: data[7].text},
+				{heading: data[8].text, body: data[9].text},
+			]} client:load/>
 			<ButtonAnimated
 				client:load
 				label={"WHAT WE'RE ALL ABOUT"}
@@ -114,9 +126,9 @@ const words = 'Solusi infrastruktur kelistrikan yang andal dan inovatif guna men
          			stagger={0.05}
          			filter={true}
          			className='text-yellow-green my-24 z-50'
-         			words={'Our Innovations'}/>
+         			words={data[10].text}/>
 			</div>
-            <InnovationSection client:load/>
+            <InnovationSection content={[data[11].text, data[12].text, data[13].text, data[14].text]} client:load/>
 		</GeneralSection>
 
 

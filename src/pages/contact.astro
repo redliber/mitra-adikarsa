@@ -14,6 +14,12 @@ import MailingListSection from '../components/sections/MailingListSection';
 import SectionFadeIn from '../components/animated/SectionFadeIn';
 import HeroTopSection from '../components/sections/HeroTopSection';
 import { stockImages } from '../lib/const';
+import { getCollection } from 'astro:content';
+
+const copywriting = await getCollection('copywriting', ({data}) => {
+	return data.page == "contact"
+})
+const data = copywriting.map((entry) => entry.data).sort((a,b) => a.index - b.index)
 ---
 
 <Layout>
@@ -23,8 +29,8 @@ import { stockImages } from '../lib/const';
 
         <HeroTopSection
 			client:load id="contact" 
-			heroText='Contact Us' 
-			heroCaption='Kami mengundang anda untuk bekerja sama dengan PT. Mitra Adikarsa dalam menghadirkan solusi kelistrikan yang aman dan efisien. Dengan pengalaman dan tenaga ahli professional, kami siap mendukung kebutuhan proyek anda.'
+			heroText={data[0].text}
+			heroCaption={data[1].text}
 			heroImgSrc={stockImages.contact1}
 		/>
 
@@ -39,7 +45,7 @@ import { stockImages } from '../lib/const';
                     stagger={0.05}
                     filter={true}
                     className='text-yellow-green my-10'
-                    words={'Talk to Us!'}
+                    words={data[2].text}
                 />
                 <div class="flex flex-col gap-6">
                     <div class="flex flex-row gap-10">
@@ -55,13 +61,13 @@ import { stockImages } from '../lib/const';
                                 stagger={0.02}
                                 filter={true}
                                 className={'max-w-lg '}
-                                words={'021 - 29020311'}/>
+                                words={data[3].text}/>
                             <SubCaption client:load
                                 duration={0.5}
                                 stagger={0.02}
                                 filter={true}
                                 className={'max-w-lg '}
-                                words={'021 - 29020312'}/>
+                                words={data[4].text}/>
                         </div>
                     </div>
                     <div class="flex flex-row gap-10">
@@ -77,7 +83,7 @@ import { stockImages } from '../lib/const';
                                 stagger={0.02}
                                 filter={true}
                                 className={'max-w-lg '}
-                                words={'mitradikarsa@gmail.com'}/>
+                                words={data[5].text}/>
                         </a>
                     </div>
                 </div>

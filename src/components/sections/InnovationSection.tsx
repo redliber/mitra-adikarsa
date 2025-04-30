@@ -5,7 +5,7 @@ import Hero from "../texts/Hero"
 import Caption from "../texts/Caption"
 import { useWindowScroll, useWindowSize } from "@uidotdev/usehooks"
 
-export default function InnovationSection() {
+export default function InnovationSection({content}: {content: any[]}) {
   const bodyRef = useRef<HTMLDivElement>(null)
   const [useHeight, setHeight] = useState(bodyRef.current?.clientHeight)
   const [usePercentage, setPercentage] = useState(0)
@@ -15,12 +15,7 @@ export default function InnovationSection() {
 
 
   const [useTopPos, setTopPos] = useState<number | undefined>(0)
-  const copyWriting = [
-    'Inovasi Teknologi Ketenagalistrikan Berlanjutan',
-    'Kebijakan K3 Operasi dan Kemitraan serta Solusi',
-    'Komitmen Tenaga Ahli',
-    'Pasar Nasional dan Adaptasi Kebutuhan Pasar',
-  ]
+
 
   function scaleValue(value:number, originalRange:number[], targetRange:number[]) {
     return (value - originalRange[0]) * (targetRange[1] - targetRange[0]) / (originalRange[1] - originalRange[0]) + targetRange[0];
@@ -43,7 +38,7 @@ export default function InnovationSection() {
     <div className="h-min-[200vh] relative w-full" ref={bodyRef}>
       <div className="flex flex-col w-full">
         {
-          copyWriting.map((item, index) => {
+          content.map((item, index) => {
             const align = index % 2 == 0 ? ` text-left` : ' text-right place-self-end'
 
             return (

@@ -17,6 +17,24 @@ import ButtonAnimated from '../components/animated/ButtonAnimated';
 import MailingListSection from '../components/sections/MailingListSection';
 import HeroTopSection from '../components/sections/HeroTopSection';
 import { stockImages } from '../lib/const';
+import { getCollection } from 'astro:content';
+
+const copywriting = await getCollection('copywriting', ({data}) => {
+	return data.page == "services"
+})
+const data = copywriting.map((entry) => entry.data).sort((a,b) => a.index - b.index)
+
+const servicesData = data.filter((entry) => entry.index > 2).map((entry) => entry.text)
+const servicesDataArr: any[] = Array.from({length: servicesData.length/2}, () => ({heading: '', body: ''}))
+
+servicesData.forEach((entry, index) => {
+    if (index % 2 == 0) {
+        servicesDataArr[Math.floor(index/2)].heading = entry
+    } 
+    else if (index % 2 == 1) {
+        servicesDataArr[Math.floor(index/2)].body = entry
+    }
+})
 ---
 
 <Layout>
@@ -26,8 +44,8 @@ import { stockImages } from '../lib/const';
 
 		<HeroTopSection 
 			client:load id="services" 
-			heroText='Our Services' 
-			heroCaption='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque volutpat faucibus varius. Integer tristique posuere est, vel egestas dui mollis sed. Phasellus euismod sed neque sed iaculis.'
+			heroText={data[0].text} 
+			heroCaption={data[1].text} 
 			heroImgSrc={stockImages.bulldozer}
 		/>
 
@@ -39,11 +57,9 @@ import { stockImages } from '../lib/const';
                 stagger={0.05}
                 className='text-dark-green md:text-center text-left'
                 client:load 
-				words={
-                'Kami telah dipercaya PLN dan Swasta dalam membuat kerjasama dengan mereka. Kami selalu mendapatkan kembali kepercayaan dari klien kami, karena kami bekerja secara profesional dengan menyediakan tenaga ahli dalam bidangnya.'
-            }/>
+				words={data[2].text} />
         </GeneralSection>
-        <ServicesSections client:load />
+        <ServicesSections data={servicesDataArr} client:load />
 		<MailingListSection client:load id='services-mailing-list'/>
     </div>
 </Layout>
