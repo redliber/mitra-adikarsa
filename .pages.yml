@@ -4,6 +4,8 @@ content:
     label : Copywriting
     type : collection
     path : src/contents/copywriting
+    view :
+      sort : [page, index]
     fields :
       - name : title
         label : Title
