@@ -5,15 +5,15 @@ content:
     type : collection
     path : src/contents/copywriting
     fields :
+      - name : text
+        label : Text
+        type : string
       - name : page
         label : Page
         type : string
       - name : index
         label : Index
         type : number
-      - name : text
-        label : Text
-        type : string
       - name : type
         label : Type
         type : string
