@@ -7,8 +7,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://redliber.github.io',
-  base: '/mitra-adikarsa',
+  site: 'https://mitraadikarsa.com',
+  // base: '/mitra-adikarsa',
   integrations: [react()],
 
   vite: {
