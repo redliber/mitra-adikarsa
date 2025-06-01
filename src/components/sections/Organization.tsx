@@ -1,9 +1,7 @@
 'use client'
-import { OrganizationChart } from 'primereact/organizationchart';
+
 import { useState } from 'react';
-import 'primereact/resources/themes/lara-light-cyan/theme.css'; // Theme
-import 'primereact/resources/primereact.min.css'; // Core CSS
-import 'primeicons/primeicons.css'; // Icons
+
 import Hero from '../texts/Hero';
 import { useWindowSize } from '@uidotdev/usehooks';
 
@@ -61,7 +59,7 @@ export default function Organization() {
                 className=' text-yellow-green my-24  '
                 words={'Struktur Organisasi'}/>
             <div className='flex flex-col gap-10 w-full overflow-x-scroll p-12 border-[0.1px] border-yellow-green/50'>
-                <Chart data={
+                {/* <Chart data={
                     [
                         {
                             label: 'Silvia Kirana',
@@ -101,7 +99,66 @@ export default function Organization() {
 
                         }
                     ]
-                }/>
+                }/> */}
+
+                <div className='flex flex-col gap-10 w-[1000px]'>
+                    <div className='flex flex-col w-full'>
+                        <SingleNode name="Silvia Kirana" role='Direktur Utama'/>
+                        <div className=' border-l-[1px] border-[#e5e7eb] h-5 self-center'></div>
+                        <div className=' border-t-[1px] border-[#e5e7eb] w-full self-center'></div>
+                        <div className='flex flex-row gap-20 justify-between'>
+                            <div className='flex flex-col justify-center place-self-start'>
+                                <div className=' border-l-[1px] border-[#e5e7eb] h-5 self-center'></div>
+                                <SingleNode name="Puspa Gita" role='Direktur Pemasaran'/>
+                            </div>
+                            <div className='flex flex-col justify-center place-self-start'>
+                                <div className=' border-l-[1px] border-[#e5e7eb] h-5 self-center'></div>
+                                <SingleNode name="Adjie Darmajie" role='Direktur Operasional'/>
+                                <div className=' border-l-[1px] border-[#e5e7eb] h-5 self-center'></div>
+                                <SingleNode name="Budiman" role='Manajer Operasional'/>
+                                <div className=' border-l-[1px] border-[#e5e7eb] h-5 self-center'></div>
+                                <div className=' border-t-[1px] border-[#e5e7eb] w-full self-center'></div>
+                                <div className='flex flex-row justify-center place-self-start'>
+                                    <div className='flex flex-col justify-center place-self-start'>
+                                        <div className=' border-l-[1px] border-[#e5e7eb] h-5 self-center'></div>
+                                        <SingleNode name="Ace Badrudin" role='Pelaksana Lapangan'/>
+                                    </div>
+                                    <div className='flex flex-col justify-center place-self-start'>
+                                        <div className=' border-l-[1px] border-[#e5e7eb] h-5 self-center'></div>
+                                        <SingleNode name="Awaldi" role='Pelaksana Lapangan'/>
+                                    </div>
+                                    <div className='flex flex-col justify-center place-self-start'>
+                                        <div className=' border-l-[1px] border-[#e5e7eb] h-5 self-center'></div>
+                                        <SingleNode name="Agung Sudrajat" role='Pelaksana Lapangan'/>
+                                    </div>
+                                    <div className='flex flex-col justify-center place-self-start'>
+                                        <div className=' border-l-[1px] border-[#e5e7eb] h-5 self-center'></div>
+                                        <SingleNode name="Arif Anggara" role='Pelaksana Lapangan'/>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div className='flex flex-col justify-center place-self-start'>
+                                <div className=' border-l-[1px] border-[#e5e7eb] h-5 self-center'></div>
+                                <SingleNode name="Titis H. Marlina" role='HRD'/>
+                                <div className=' border-l-[1px] border-[#e5e7eb] h-5 self-center'></div>
+                                <div className=' border-t-[1px] border-[#e5e7eb] w-full self-center'></div>
+                                <div className='flex flex-row justify-center place-self-start'>
+                                    <div className='flex flex-col justify-center place-self-start'>
+                                        <div className=' border-l-[1px] border-[#e5e7eb] h-5 self-center'></div>
+                                        <SingleNode name="Revita Eliyasari" role='Finance'/>
+                                    </div>
+                                    <div className='flex flex-col justify-center place-self-start'>
+                                        <div className=' border-l-[1px] border-[#e5e7eb] h-5 self-center'></div>
+                                        <SingleNode name="Rizka L. Agustin" role='Administrasi'/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
                 <div className='flex flex-col gap-10'>
                     <div className='flex flex-row w-full'>
                         <SingleNode name="Teguh Nugraha" role='E-Procurement'/>
@@ -129,60 +186,60 @@ export default function Organization() {
     )
 }
 
-function NodeTemplate (node:any) {
-    const Role = () => {
-        if (node.data?.role) {
-            return (
-                <div className="node-content text-xs text-yellow-green">
-                    <div>{node.data.role}</div>
-                </div>
-            )
-        }
-    }
+// function NodeTemplate (node:any) {
+//     const Role = () => {
+//         if (node.data?.role) {
+//             return (
+//                 <div className="node-content text-xs text-yellow-green">
+//                     <div>{node.data.role}</div>
+//                 </div>
+//             )
+//         }
+//     }
 
-    return (
-        <div className=' hover:bg-yellow-green/50 text-[#e5e7eb] hover:text-dark-green border-[0.1px] border-white/15 p-3 justify-items-center text-center flex flex-col gap-1 min-w-[120px]'>
-            <div className="node-header font-bold text-md leading-[1.2rem]">{node.label}</div>
-            <Role/>
-        </div>
-    )
-}
+//     return (
+//         <div className=' hover:bg-yellow-green/50 text-[#e5e7eb] hover:text-dark-green border-[0.1px] border-white/15 p-3 justify-items-center text-center flex flex-col gap-1 min-w-[120px]'>
+//             <div className="node-header font-bold text-md leading-[1.2rem]">{node.label}</div>
+//             <Role/>
+//         </div>
+//     )
+// }
 
-function Chart({data} : {data:any[]}) {
+// function Chart({data} : {data:any[]}) {
 
-    return (
-        <div className="organizationchart-demo">
-            <OrganizationChart
-                className='w-full align-middle justify-items-center'
-                value={data}
-                selectionMode='multiple'
-                // @ts-ignore
-                onSelectionChange={(e) => setSelection(e.data)}
-                nodeTemplate={NodeTemplate}
-                />
-            <style>
-                {
-                    `
-                    .p-node-toggler {
-                        display: none !important;
-                        }
+//     return (
+//         <div className="organizationchart-demo">
+//             <OrganizationChart
+//                 className='w-full align-middle justify-items-center'
+//                 value={data}
+//                 selectionMode='multiple'
+//                 // @ts-ignore
+//                 onSelectionChange={(e) => setSelection(e.data)}
+//                 nodeTemplate={NodeTemplate}
+//                 />
+//             <style>
+//                 {
+//                     `
+//                     .p-node-toggler {
+//                         display: none !important;
+//                         }
     
-                    .p-organizationchart-nodes {
-                        vertical-align: top;
-                    }
-                    .p-organizationchart .p-organizationchart-node-content {
-                        background: none;
-                        border: none;
-                    }
-                    .p-organizationchart .p-organizationchart-node-content {
-                        padding: 0px;
-                    }
+//                     .p-organizationchart-nodes {
+//                         vertical-align: top;
+//                     }
+//                     .p-organizationchart .p-organizationchart-node-content {
+//                         background: none;
+//                         border: none;
+//                     }
+//                     .p-organizationchart .p-organizationchart-node-content {
+//                         padding: 0px;
+//                     }
                                     
-                    `
-                }
-            </style>
-        </div>
-    )
-}
+//                     `
+//                 }
+//             </style>
+//         </div>
+//     )
+// }
 
 
