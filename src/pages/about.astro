@@ -12,6 +12,7 @@ import { stockImages } from '../lib/const';
 import Caption from '../components/texts/Caption';
 import Card from '../components/cards/Card';
 import { getCollection } from 'astro:content';
+import Organization from '../components/sections/Organization';
 
 const copywriting = await getCollection('copywriting', ({data}) => {
 	return data.page == "about"
@@ -20,25 +21,6 @@ const data = copywriting.map((entry) => entry.data).sort((a,b) => a.index - b.in
 
 const cards = data[13].text.split(' ')
 
-// const cards = ['Ideas', 'People', 'Execution', 'Tool', 'Plan']
-const cardsImages = [
-	stockImages.electriccharging.src,
-	stockImages.teamwork.src,
-	stockImages.execution.src,
-	stockImages.tools.src,
-	stockImages.planning.src,
-]
-
-const values = [
-	'Kami beroperasi di setiap lingkup nilai inti dengan keterlibatan penuh memastikan setiap aspek diperkaya dengan ide dan inovasi yang relevan serta berdampak.',
-	'Kami terlibat secara penuh dalam setiap aspek pekerjaan, memastikan setiap proses berjalan optimal. Didukung oleh SDM profesional yang terlatih, berpengalaman, serta memiliki jiwa inovatif, termasuk manajer proyek dan tenaga ahli berdedikasi. Kami menghadirkan solusi yang unggul.',
-	'Dengan peralatan modern dan pendekatan strategis, kami mengoordinasikan setiap ide dan perencanaan secara sistematis untuk mewujudkan hasil yang presisi, efektif, dan berkualitas tinggi.'
-]
-
-const visi = 'Menjadi perusahaan mekanikal dan elektrikal terdepan yang tidak hanya unggul di tingkat nasional, tetapi juga berdaya saing global. Kami berkomitmen untuk menghadirkan layanan berkualitas tinggi dengan standar internasional, didukung oleh inovasi, eﬁsiensi, dan keunggulan teknis guna memberikan nilai maksimal bagi pelanggan dan mitra bisnis.'
-
-const misi1 = 'Kami berkomitmen untuk menghadirkan solusi mekanikal dan elektrikal yang inovatif, efisien, dan berstandar internasional dengan mengutamakan kualitas terbaik melalui teknologi terkini, material unggulan, serta tenaga ahli yang kompeten. Kami membangun kepercayaan dan kemitraan jangka panjang dengan pelanggan, mitra bisnis, dan investor melalui transparansi dan profesionalisme.'
-const misi2 = 'Dengan semangat daya saing, kami terus berkembang di tingkat nasional dan global, menghadirkan layanan yang memenuhi standar internasional. Kami juga berkomitmen pada praktik bisnis yang berkelanjutan, bertanggung jawab terhadap lingkungan dan masyarakat.'
 ---
 
 <Layout>
@@ -251,6 +233,10 @@ const misi2 = 'Dengan semangat daya saing, kami terus berkembang di tingkat nasi
 					words={data[19].text}/>
 			</div>
 
+		</GeneralSection>
+
+		<GeneralSection id="about-organization" innerClasses='flex flex-col sm:flex-row gap-10 w-full'>
+			<Organization client:load/>
 		</GeneralSection>
 
 
