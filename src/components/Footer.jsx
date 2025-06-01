@@ -11,15 +11,15 @@ export default function Footer({}) {
     const tabs = [
         {
             label: 'HOME',
-            route: '/mitra-adikarsa'
+            route: '/'
         },
         {
             label: 'SERVICES',
-            route: '/mitra-adikarsa/services'
+            route: '/services'
         },
         {
             label: 'ABOUT',
-            route: '/mitra-adikarsa/about'
+            route: '/about'
         },
     ]
 
@@ -62,7 +62,7 @@ export default function Footer({}) {
                     <div className="flex flex-col align-start gap-6 mb-24">
                         <div className="flex flex-row items-center gap-2">
                             <img src={companylogo.src} alt="company-logo" width={50}/>
-                            <a href="/mitra-adikarsa" className="leading-[0.8rem]">
+                            <a href="/" className="leading-[0.8rem]">
                                 MITRA <br></br>ADIKARSA
                             </a>
                         </div>
@@ -95,7 +95,7 @@ export default function Footer({}) {
                             <ButtonAnimated
                                 client:load
                                 label={'↗ CONTACT US'}
-                                href={'/mitra-adikarsa/contact'}
+                                href={'/contact'}
                                 className={"font-black"}
                                 initColor={constColors.darkGreen}
                                 initBgColor={constColors.white}

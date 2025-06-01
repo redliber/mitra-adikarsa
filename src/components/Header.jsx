@@ -23,15 +23,15 @@ export default function Header({currentPath}) {
     const tabs = [
         {
             label: 'HOME',
-            route: '/mitra-adikarsa'
+            route: '/'
         },
         {
             label: 'SERVICES',
-            route: '/mitra-adikarsa/services'
+            route: '/services'
         },
         {
             label: 'ABOUT',
-            route: '/mitra-adikarsa/about'
+            route: '/about'
         },
     ]
 
@@ -84,7 +84,7 @@ export default function Header({currentPath}) {
         >
             <div className="flex flex-row items-center gap-2 h-full">
                 <img src={companylogo.src} alt="company-logo" className="w-[50px]" />
-                <a href="/mitra-adikarsa" className="max-w-1.5 leading-[0.8rem] invisible md:visible">
+                <a href="/" className="max-w-1.5 leading-[0.8rem] invisible md:visible">
                     MITRA ADIKARSA
                 </a>
             </div>
@@ -129,7 +129,7 @@ export default function Header({currentPath}) {
                         <ButtonAnimated
                             client:load
                             label={'CONTACT US'}
-                            href={'/mitra-adikarsa/contact'}
+                            href={'/contact'}
                             className={"font-black"}
                             initColor={constColors.darkGreen}
                             initBgColor={constColors.white}
@@ -202,7 +202,7 @@ export default function Header({currentPath}) {
                                         <ButtonAnimated
                                             client:load
                                             label={'↗ CONTACT US'}
-                                            href={'/mitra-adikarsa/contact'}
+                                            href={'/contact'}
                                             className={"w-full text-3xl text-center mt-32 font-black bottom-0"}
                                             initColor={constColors.darkGreen}
                                             initBgColor={constColors.white}
