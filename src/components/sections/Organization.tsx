@@ -52,12 +52,6 @@ export default function Organization() {
 
     return (
         <div className='w-full'>
-            <Hero
-                duration={1.5}
-                stagger={0.05}
-                filter={true}
-                className=' text-yellow-green my-24  '
-                words={'Struktur Organisasi'}/>
             <div className='flex flex-col gap-10 w-full overflow-x-scroll p-12 border-[0.1px] border-yellow-green/50'>
                 {/* <Chart data={
                     [

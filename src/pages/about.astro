@@ -235,7 +235,14 @@ const cards = data[13].text.split(' ')
 
 		</GeneralSection>
 
-		<GeneralSection id="about-organization" innerClasses='flex flex-col sm:flex-row gap-10 w-full'>
+		<GeneralSection id="about-organization" innerClasses='flex flex-col gap-10 w-full'>
+				<Hero
+					client:load
+					duration={1.5}
+					stagger={0.05}
+					filter={true}
+					className=' text-yellow-green my-24  '
+					words={'Struktur Organisasi'}/>
 			<Organization/>
 		</GeneralSection>
 
