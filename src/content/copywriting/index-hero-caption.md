@@ -1,7 +1,11 @@
 ---
 title: index-hero-caption
 page: index
-text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque volutpat faucibus varius. Integer tristique posuere est, vel egestas dui mollis sed. Phasellus euismod sed neque sed iaculis.
+text: PT. Mitra Adikarsa berkomitmen untuk menghadirkan solusi infrastruktur
+  kelistrikan yang andal dan inovatif guna mendukung kemajuan Indonesia. Dengan
+  mengutamakan keselamatan, efisiensi, dan standar kualitas tertinggi, kami
+  memastikan pembangunan infrastruktur kelistrikan yang berkelanjutan dan
+  berdaya saing.
 index: 1
 type: caption
 ---
