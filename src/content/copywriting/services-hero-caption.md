@@ -1,7 +1,11 @@
 ---
 title: services-caption
 page: services
-text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque volutpat faucibus varius. Integer tristique posuere est, vel egestas dui mollis sed. Phasellus euismod sed neque sed iaculis.
+text: Jasa Kami Meliputi Kontraktor Umum, Konsultan Perencanaan, Penyediaan
+  Tenaga Kerja Kelistrikan, Pemeliharaan Instalasi Tenaga Listrik, Penyediaan
+  Energi Baru Dan Terbarukan, Serta Assesment Dan Pengujian Instalasi Listrik.
+  Kami Juga Menyediakan Layanan Infrastruktur Telekomunikasi (Perencanaan,
+  Pemasangan Dan Pemeliharaan) Jaringan Fiber Optik.
 index: 1
 type: caption
 ---
