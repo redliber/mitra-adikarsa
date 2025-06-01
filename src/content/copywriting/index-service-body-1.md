@@ -1,7 +1,8 @@
 ---
 title: index-service-body-1
 page: index
-text: I offer advanced tests for the intestines, hormones, and heavy metals to reveal hidden burdens on your body.
+text: Kami bekerja dengan penyedia material berkualitas, baik Nasional maupun
+  Internasional, sesuai standar industri.
 index: 5
 type: body
 ---
